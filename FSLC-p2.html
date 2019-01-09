@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Clean Blog - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">PROJECTS</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <!--<li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="post.html">Sample Post</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>-->
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>Free Space Laser Communication Part 2</h1>
+              <h2 class="subheading"> Pulse-Width Modulated System </h2>
+              <span class="meta">Completed by
+                <a href="#">Devika Vishwanath</a>
+                May, 2014</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <h2 class="section-heading">Media Links:</h2>
+            <a href=""><p><b>TedxKids Talk</b> - "The True Lessons From My Science Projects - Devika Vishwanath"</p></a>
+
+
+            <a href="http://www.kpu.ca/news/2014/04/16/surrey-and-delta-high-school-students-showcase-science-smarts-kpu"><p><b>Article by KPU:</b> http://www.kpu.ca/news/2014/04/16/surrey-and-delta-high-school-students-showcase-science-smarts-kpu</p></a>
+
+            <a href="http://www.asianpacificpost.com/article/6100-students-showcase-science-smarts.html"><p><b>Asian Pacific Post:</b> http://www.asianpacificpost.com/article/6100-students-showcase-science-smarts.html</p></a>
+
+            <a href="https://www.bclocalnews.com/life/students-showcase-science-smarts/"><p><b>BC Local/Surrey Now Leader:</b> https://www.bclocalnews.com/life/students-showcase-science-smarts/</p></a>
+
+            <a href="https://secure.youthscience.ca/virtualcwsf/projectdetails.php?id=4076&"><p><b>CWSF Youth Science:</b> https://secure.youthscience.ca/virtualcwsf/projectdetails.php?id=4076&</p></a>
+            <h2 class="section-heading">Introduction</h2>
+
+            <p>Amplitude modulation (AM) worked well and gave clear signals. However, the inherent problem with AM is that it has to operate in the linear operating range of the laser. When the amplitude gets modulated beyond the linear range, the signals get distorted. </p>
+
+            <p>This limit can be overcome by using Pulse Width Modulation. The carrier wave has only two levels resulting in the transmission of pulses. The duration of each pulse is modulated by the input signal.  </p>
+
+            <p>This is achieved using a class D amplifier. In a class D amplifier the transistor operates in a switching mode. This means that the transistor goes on and off instead of being always on in its linear range.</p>
+
+            <p>Class D amplifiers typically need an initial amplification stage to make sure that the input signal for the class D section is amplified to the required level. In the class D amplifier, also known as a comparator, the analog input signal is transformed into a train of pulses that have varying widths based on the input signal amplitude. This is achieved using a constant frequency triangle wave. The comparator has two input ports. It takes in both the input audio signal as well as the triangle wave. The triangle wave is used as a reference to compare with the audio input level. Whenever the audio input level is above that of the reference wave input level, the output is a high level (on position or logic 1). Whenever the audio input level is below that of the reference wave level, the output is a low level (off position or logic 0). Thus the output is a series of square wave pulses with varying widths. </p>
+
+                       
+
+             <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/pwm1.jpg" alt="">
+              </a>
+              <span class="caption text-muted">Pulse Width Modulation Source: http://www.richardbrice.net/class_d.htm</span>
+            </div>         
+
+
+
+
+            <h2 class="section-heading">Modulator Top-Level Design</h2>
+
+            <p>Pulse Width Modulation is achieved using a Class D Amplifier</p>
+
+            <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/pwm-topleveldesign.jpg" alt="">
+              </a>
+              <span class="caption text-muted">Block Diagram of Modulator</span>
+            </div>           
+            
+
+            <p>There are three parts for this design:</p>
+
+            <ol>
+              <li>Operational Amplifier (Op-amp):<br>An op-amp is an amplifier with theoretically infinite gain. It can be configured to receive the input audio signal and amplify it linearly to the required level so that the comparator can take it.</li>
+              <br>
+              <li>Triangle wave generator:<br>As the name indicates, this module generates a triangle wave in the required amplitude and frequency to be inputted into the comparator.</li>
+              <br>
+              <li>Comparator:<br>A comparator is also an analog to digital convertor (ADC). It has two output levels, a high and a low, corresponding to a 1 and a 0. It can take two input signals usually denoted as a plus (non-inverting) and a minus (inverting). It compares the voltages between the inverting and non-inverting inputs. The output will be at high level (logic 1) if the non-inverting input voltage is more than the inverting input voltage. The output will be at low level (logic 0) if the non-inverting input is less than the inverting input.</li>
+              
+            </ol>
+
+            
+
+            <!--<blockquote class="blockquote">The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>-->
+
+            
+
+            
+            <h2 class="section-heading">Amplifier Design</h2>
+            <blockquote class="blockquote">Design of a Differential Amplifier for input to the comparator</blockquote>
+
+
+            <p>The most popular Op-amp IC for audio purposes, LM741, was chosen for the initial amplifier section.</p>
+
+            <p>A differential amplifier configuration was chosen for the needs of the comparator input in the PWM modulator.</p>
+
+            <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/differential amplifier.jpg" alt="">
+              </a>
+              <span class="caption text-muted">Differential Amplifier Source: http://www.electronics-tutorials.ws/opamp/opamp_5.html</span>
+            </div>           
+
+            <p>The above current values can be calculated as below:</p>
+            <p>$$I_1 = \frac{V_1 - V_a}{R_1},I_2 = \frac{V_2 - V_b}{R_2} , I_2 = \frac{V_2}{R_2 + R_4} , I_f = \frac{V_a - V_{out}}{R_3}$$</p> 
+
+            <p>The summing point is: $$V_a = V_b$$</p>   
+            <p>And $$V_b = V_2 \left(\frac{R_4}{R_2+R_4}\right)$$</p>
+
+            <p>If V<sub>2</sub> = 0, then we get inverted amplifier feedback:</p>
+
+            <p>$$V_{out(a)} = -V_1\left(\frac{R_3}{R_1}\right)$$</p> 
+
+            <p>If V<sub>1</sub> = 0, then we get non-inverted amplifier feedback:</p> 
+            <p>$$V_{out(b)} = V_2\left(\frac{R_4}{R_2 + R_4}\right)\left(\frac{R_1 + R_3}{R_1}\right)$$</p> 
+
+            <p>We therefore know the following:</p>  
+            <p>$$V_{out} = V_{out(a)} + V_{out(b)} = -V_1\left(\frac{R_3}{R_1}\right) + V_2\left(\frac{R_4}{R_2 + R_4}\right)\left(\frac{R_1 + R_3}{R_1}\right)$$</p>
+
+            <p>In my circuit, I preffered to keep R<sub>2</sub> = R<sub>4</sub> in order to simplify the design. Therefore, when R<sub>2</sub> = R<sub>4</sub> :</p> 
+
+            <p>$$V_{out} = -V_1\left(\frac{R_3}{R_1}\right) + V_2\left(\frac{R_1 + R_3}{2R_1}\right)$$</p>
+
+            <p><b>Supply Votlage to the Op-amp and Saturation</b></p> 
+            <p>When I designed a differential amplifier for the PWM circuit with the above equation, the outputs that I actually got did not match at all with the above equation. Further research showed that these equations work for only very small inputs because of saturation effects. </p> 
+            <p>Op-amps have two supply voltages such as +V<sub>cc</sub> and –V<sub>cc</sub>. The output voltage cannot go beyond these supply voltages (+V<sub>cc</sub>). </p>
+            <p>However in many circuits the op-amp is configured in a single supply mode. In this case, the –V<sub>cc</sub> pin is grounded instead of being supplied with a negative supply voltage. In this case, the saturation voltage for Vout is even smaller.</p>
+
+            <br>
+            <p><b>Experiment: LM741 Single Supply Differential Amplifier Input vs Output</b></p>
+            <p>Typical ratios of R<sub>3</sub>/R<sub>1</sub> were found to be around 10 in different circuits. However, no equation could be found that would satisfactorily apply to my circuit condition. I therefore tested it as below.</p>
+
+            <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/DifferentialAmpExp.jpg" alt="">
+              </a>
+              <span class="caption text-muted">LM741 Single Supply Differential Amplifier - Experimental Setup</span>
+            </div>
+
+            <p>I fed a 1kHz sine wave into the audio input using a tone generator app. I then connnected a variable voltage supply to pin 3. I monitored the input DC voltage (pin 3) and the output DC voltage (pin 6). I set the peak to peak audio input voltage to 300mV by varying the phone volume and measuring it using the oscilloscope software. This value was chosen since that was the typical value of the input amplitudes that would be fed into the circuit. I measured the output V<sub>pp</sub> and recorded the values for varying input DC voltage increments.</p>
+            <br>
+
+            <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/dcCompOutput.jpg" alt="">
+              </a>
+              <span class="caption text-muted"></span>
+            </div>
+            <br>
+            <br>
+
+            <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/AmpFactors.jpg" alt="">
+              </a>
+              <span class="caption text-muted"></span>
+            </div>
+            <br>
+
+            <p>Looking at the data, it can be observed that the DC voltage in pin 3 is not getting amplified at the output (pin 6). Also, for this particular set-up, the AC input (300mV) is getting amplified by an average factor of 5.66. Therefore, the input/output equation for this setup can be stated as:</p>
+
+            <p>$$V_{out} = V_{DC} + \left(A \times V_{AC}\right)$$</p>
+            <p>Where,<br> V<sub>out</sub> = the composite AC +DC voltage available at pin 6 <br>V<sub>DC</sub> = DC input at pin 3<br>V<sub>AC</sub> = AC audio signal at the input (through the capacitor)<br>A = Average amplification factor for the set-up. In this case, A = 5.660476</p>
+
+            <p>Based on the above values and the input requirements for the next stage (the comparator), the non-inverting input DC voltage was chosen to be 4.5V. The resulting differential amplifier circuit is as below.</p>
+
+
+            <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/DifferentialAmpDesign.jpg" alt="">
+              </a>
+              <span class="caption text-muted">LM741 Differential Amplifier Design</span>
+            </div>
+            <br>
+
+            <h2 class="section-heading">Triangle Wave Generator</h2>
+            <blockquote class="blockquote">Design of the Triangle Wave Generator for input to the comparator</blockquote>
+            <p>The second section of the modulator is a triangle wave generator that would feed into the negative input of the comparator. Triangle waves can be generated using timer ICs.</p>
+            <p>The most popular timer ICs are 355, 555, 556, 7555, and 7556. Out of these, 7555 and 7556 are new generation ICs. While they are one to one compatible to 555 and 556, they provide improved performance by way of lower supply current, a wider operating supply voltage range, and frequency performance.</p>
+            <p>7555 has a rated supply current of 60μA and 7556 has a rated supply current of 120μA. Since it is feeding into a comparator, 7555 would be enough and therefore it was chosen for this circuit.</p>
+            <p>Below is information taken from the data sheets of LM555 by Fairchild Semiconductor</p>
+
+            <p><b>Astable Operation</b></p>
+            <p>The timer works as an oscillator when it is configured for astable operation.</p>
+
+            <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/astable operation.jpg" alt="">
+              </a>
+              <span class="caption text-muted">7555 Astable Operation Source: https://www.fairchildsemi.com/ds/LM/LM555.pdf</span>
+            </div>
+            <br>
+
+            <p>When the V<sub>C1</sub>, or the threshold voltage, reaches 2V<sub>CC</sub>/3; the comparator output on the trigger terminal becomes high, resetting the F/F and causing the timer output to become low. This turns on the discharging transistor and C<sub>1</sub> discharges through the discharging channel formed by R<sub>B</sub> and the discharging transistor. When the V<sub>C1</sub> falls below V<sub>CC</sub>/3, the comparator output on the trigger terminal becomes high and the timer output becomes high again. The discharging transistor turns off and the V<sub>C1</sub> rises again. In the above process, the section where the timer output is high is the time it takes for the V<sub>C1</sub> to rise from V<sub>CC</sub>/3 to 2V<sub>CC</sub>/3, and the section where the timer output is low is the time it takes for the V<sub>C1</sub> to drop from 2V<sub>CC</sub>/3 to V<sub>CC</sub>/3. </p>
+             <blockquote class="blockquote">(Source: https://www.fairchildsemi.com/ds/LM/LM555.pdf)</blockquote>
+
+             <p>The frequency of the triangle wave is given in the datasheets as below $$f = \frac{1}{t} = \frac{1.44}{(R_A + 2R_B)C_1}$$</p>
+
+
+             <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/CapacitanceVsFreq.jpg" alt="">
+              </a>
+              <span class="caption text-muted">Capacitance Vs Frequency Source: https://www.fairchildsemi.com/ds/LM/LM555.pdf</span>
+            </div>
+            
+            <p>For the values of R<sub>A</sub> = 15k&#8486;, R<sub>B</sub> = 15k&#8486;, and C<sub>1</sub> = 0.001 &#956;F, we get f = 32kHz</p>
+
+            <h2 class="section-heading">Comparator</h2>
+            <blockquote class="blockquote">Design of Comparator for suitable output to laser</blockquote>
+            <p>The comparators that were compared were LM239/LM339 and LM111/LM211/LM311. As far as the specifications that are relevant to the design of this circuit such as the input voltages, output voltages, supply voltages and response time, LM239 and LM339 were the same. Similarly, from the same point of view, LM111, LM211, and LM311 were also the same. Therefore the major comparison was between LM339 and LM311. </p>
+
+            <p>LM339 is a dual comparator which means that there were two comparators inside an IC with 14 pins. LM311 is a single comparator in an 8 pin package. For this circuit only one comparator would suffice. Also, the response time for LM311 was 200nS which was better than LM339 (300nS). Therefore LM311 was chosen. </p>
+
+            <p>Depending on the amplitude of the pulses required, a voltage is supplied at the output terminal through a resistor. When Vout is logic 0, this voltage is grounded and the output voltage becomes 0. When Vout is logic 1, this voltage is open-circuited from ground, so it is available at the output terminal.</p>
+
+            <p>Based on the typical current through the laser module, the value of the output pull up resistor can be calculated as follows:</p>
+
+            <p>Supply Voltage = 9V</p>
+            <p>Typical voltage required across laser = 3V</p>
+            <p>Typical current through the laser = 25mA</p>
+            <p>Therefore the value of R<sub>0</sub> = (9V - 3V)/25mA = 240 Ω</p>
+
+            <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/comparator.jpg" alt="">
+              </a>
+              <span class="caption text-muted">Comparator Setup</span>
+            </div>
+
+            <h2 class="section-heading">Final Circuit Design</h2>
+            <br>
+
+
+            <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/FinalCircuitPWM - Copy2.jpg" alt="" >
+              </a>
+              <span class="caption text-muted">Final Circuit Design</span>
+            </div>
+
+            <!--style="transform:rotate(90deg);"-->
+
+            <h2 class="section-heading">AM vs PWM</h2>
+            <blockquote class="blockquote">Comparing the Outputs of Amplitude Modulation and Pulse-Width Modulation</blockquote>
+
+            <p>The following are the outputs of AM vs PWM for an input signal of 1kHz input signal, measured on the software oscilloscope:</p>
+
+            <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/AM System Output.jpg" alt="" >
+              </a>
+              <span class="caption text-muted">Output 1kHz from Amplitude Modulation System</span>
+            </div>
+            <br>
+            <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/PWM system output.jpg" alt="" >
+              </a>
+              <span class="caption text-muted">Output 1kHz from Pulse-Width Modulation System</span>
+            </div>
+            <br>
+            <p>Amplitude modulation and Pulse-width modulation have their own merits and demerits when compared to each-other. Two properties stand out – output amplitude and distortion. </p>
+
+            <p><b>Output Amplitude</b></p>
+            <p>From my test it emerged that Pulse-width modulation is a lot louder than amplitude modulation. This is because the output amplitude in the case of PWM is not dependant on the linear voltage range of the entire system. It is mainly dependent on the duration of the pulses. This makes it possible to make use of the full voltage range of the detector/demodulator. The output amplitude of PWM is more than ten times that of AM</p>
+            <p><b>Distortion</b></p>
+            <p>Amplitude modulation is much less distorted compared to pulse-width modulation. This was evident from the listening tests. The amplitude modulation system is carefully fine-tuned to ensure that every stage operates in the linear range. Therefore the output becomes almost a true representation of the input. However, in pulse-width modulation the signals are sliced with high frequency (32 kHz in my experiment) triangle waves. The detector/demodulator has several high-frequency components due to the high-frequency laser pulses. This increases the harmonic content of the final output. </p>
+
+
+
+
+
+            
+            <p>Placeholder text by
+              <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by
+              <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>

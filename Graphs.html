@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Clean Blog - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">PROJECTS</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <!--<li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="post.html">Sample Post</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>-->
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>Graphs and Algorithms</h1>
+              <!--<h2 class="subheading"> Pulse-Width Modulated System </h2>-->
+              <span class="meta">Completed by
+                <a href="#">Devika Vishwanath</a>
+                Dec, 2017 for CPEN 221</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            
+            <h2 class="section-heading">Introduction</h2>
+            This project focused on creating two types of graphs:
+            <ol>
+              <li><b>Adjacency List Graph (Directed)</b></li>
+              <p>This graph was implemented using an object type of Map as follows:</p>
+              <!--<div class="text-center">              
+              <img class="img-fluid" src="img/adjlist obj.jpg" alt="">              
+            </div>  -->
+            <code><pre>
+  //Chose to use a HashMap to store the adjacency graph
+  //Each key corresponds to a vertex in the map
+  //Each HashSet value is a set of all vertices that the key (Vertex) has an edge with
+
+  private Map&ltVertex, HashSet&ltVertex&gt&gt graphAdj = new HashMap&ltVertex, HashSet&ltVertex&gt&gt();
+
+</pre></code>   
+            <p>The keys in the HashMap corresponded to each vertex 'v' of the graph</p>
+            <p>The values in the HashMap corresponded to the list of vertices that 'v' has an edge directed to</p>
+            <p>This graph was directed since if one vertex 'v' had an edge with vertex 'v2' this did not necessarily mean that vertex 'v2' had an edge with vertex 'v1'</p>
+
+              <li><b>Adjacency Matrix Graph (Undirected)</b></li>
+              <p>This graph was implemented using an object type of ArrayList as follows </p>
+              <!--<div class="text-center">              
+              <img class="img-fluid" src="img/adjmatrix obj.jpg" alt="">              
+            </div> -->
+            <code><pre>
+  //Chose to use an ArrayList that holds ArrayLists. This therefore creates an mXm matrix where m corresponds to the number of vertices. 
+  //Each ArrayList holds within the set of lists, corresponds to a separate vertex. 
+  //To know the value of the vertex refer to the map of Index Values below. 
+
+  private ArrayList&ltArrayList&ltInteger&gt&gt graphAdjM = new ArrayList&ltArrayList&ltInteger&gt&gt();
+
+</pre></code>
+            <p>The ArrayLists placed within an ArrayList essentially created a 2D Matrix. The integers stored in this matrix could either be 1 or 0 and therefore represented whether 2 vertices shared an edge (1) or not (0). This graph was therefore undirected. </p>
+
+            <p>An additional Map was created for reference to the graph. The keys of this map consisted of vertices and the values of this map held integers representing the index of the corresponding Vertex in the graph ArrayList.</p>
+
+            </ol>
+
+            <h2 class="section-heading">Functions</h2>
+            <p>Many functions were created in the classes of both types of graphs. Some of these included obtaining the vertices of the graphs, the list of edges of a certain vertex, adding vertices/edges to the graph, and checking if certain edges exist. </p>
+            <p>Two of the most noteworthy functions implemented for each type of graph were "obtaining upstream neighbors" and "obtaining downstream neighbors" of a vertex in the graph.</p>
+
+            <h2 class="section-heading">Upstream/Downstream Neighbors</h2>
+            <p>The following implementations were used to obtain the upstream and downstream neighbors of the adjacency list and adjacency matrix graphs</p>
+
+            <p><b>Adjacency List Graph - Upstream Neighbors:</b></p>
+            <!--<div class="text-center">              
+              <img class="img-fluid" src="img/upstream neighbors.jpg" alt="">              
+            </div> 
+            <br>-->
+            <code><pre>
+  //Obtains all upstream vertices corresponding to a vertex
+  public List&ltVertex&gt getUpstreamNeighbors(Vertex v){
+    List&ltVertex&gt usNeighbors = new ArrayList&ltVertex&gt();
+    HashSet&ltVertex&gt edges = new HashSet&ltVertex&gt();
+    //Parses all keys of the adjacency list
+    //if the vertex is within its value, the key is added as an upstream neighbor
+    for (Vertex key: graphAdj.keySet()) {
+        edges = graphAdj.get(key);
+        if(edges != null && !edges.isEmpty()) {
+            for(Vertex temp : edges) {
+            if(temp.equals(v))
+              usNeighbors.add(key);
+          }
+      }
+    }
+    return usNeighbors;
+  }
+
+</pre></code>
+
+
+
+            <p><b>Adjacency List Graph - Downstream Neighbors:</b></p>
+            <!--<div class="text-center">              
+              <img class="img-fluid" src="img/downstreamneighbors.jpg" alt="">              
+            </div> -->
+            <code><pre>
+  //Obtains all downstream vertices corresponding to a vertex
+  public List&ltVertex&gt getDownstreamNeighbors(Vertex v){
+    List&ltVertex&gt dsNeighbors = new ArrayList&ltVertex&gt();
+    HashSet&ltVertex&gt edgesv1 = graphAdj.get(v);
+    //Parses and adds all vertices connected to a vertex
+    if(edgesv1 !=null && !edgesv1.isEmpty()) {
+      for(Vertex temp: edgesv1) {
+        dsNeighbors.add(temp);
+      }
+    }
+    return dsNeighbors;
+  }</pre></code>
+            <br>
+
+            <p><b>Adjacency Matrix Graph - Upstream Neighbors:</b></p>
+            <!--<div class="text-center">              
+              <img class="img-fluid" src="img/upstream neighbors matrix.jpg" alt="">              
+            </div> -->
+            <code><pre>
+  //Obtains all upstream neighbors of a vertex in the adjacency matrix
+  /**
+   * @return List&ltVertex&gt
+   */
+  public List&ltVertex&gt getUpstreamNeighbors(Vertex v) {
+    List&ltVertex&gt usNeighbors = new ArrayList&ltVertex&gt();
+    int indexValv = indexVals.get(v);
+    
+    //Parses through all vertices to see if an edge exists between that vertex and the current vertex 'v'
+    for (int i = 0; i &lt graphAdjM.size(); i++) {
+      ArrayList&ltInteger&gt tempV = graphAdjM.get(i);
+      if (tempV.get(indexValv) == 1) {
+        for (Vertex t : indexVals.keySet()) {
+          if (indexVals.get(t) == i) {
+            usNeighbors.add(t);
+          }
+        }
+      }
+    }
+    return usNeighbors;
+  }</pre></code>
+
+            <p><b>Adjacency Matrix Graph - Downstream Neighbors:</b></p>
+            <!--<div class="text-center">              
+              <img class="img-fluid" src="img/downstreamneighbors matrix.jpg" alt="">              
+            </div> -->
+            <code><pre>
+  //Obtains all downstream neighbors of a vertex in the adjacency matrix
+  /**
+   * @return List&ltVertex&gt
+   */
+  public List&ltVertex&gt getDownstreamNeighbors(Vertex v) {
+    //Create a list to store downstream neighbors
+    List&ltVertex&gt dsNeighbors = new ArrayList&ltVertex&gt();
+    int indexValv1 = indexVals.get(v);
+    //Obtain the list of edges corresponding to the input Vertex 'v'
+    ArrayList&ltInteger&gt tempV = graphAdjM.get(indexValv1);
+
+    //Parses through the edges of Vertex 'v'
+    for (int i = 0; i &lt tempV.size(); i++) {
+      //if an edge exists, the vertex connected to that edge is added as a downstream neighbor
+      if (tempV.get(i) == 1) {
+        for (Vertex t : indexVals.keySet()) {
+          if (indexVals.get(t) == i) {
+            dsNeighbors.add(t);
+          }
+        }
+      }
+    }
+    return dsNeighbors;
+  }</pre></code>
+            <br>
+        
+
+
+            <h2 class="section-heading">Depth-First Searching</h2>
+
+            <p>Depth-First searching is an algorithm that can be used to traverse a graph. In this algorithm, the path begins at the selected vertex, and the path explores as far as it can down a branch, before returning back upwards.</p>
+
+            <p>I implemented this algorithm using Stacks in the following manner:</p>
+
+            <!--<div class="text-center">              
+              <img class="img-fluid" src="img/Depthfirstsearch.jpg" alt=""> 
+              <img class="img-fluid" src="img/Depthfirstsearchhelper.jpg" alt="">             
+            </div> -->
+            <code><pre>
+  /**
+   * Perform a complete depth first search of the given graph. Start with the
+   * search at each vertex of the graph and create a list of the vertices visited.
+   * Return a set where each element of the set is a list of elements seen by
+   * starting a DFS at a specific vertex of the graph (the number of elements in
+   * the returned set should correspond to the number of graph vertices).
+   *
+   * @param graph
+   *      The graph being traversed to obtain the depthFirstSearch set
+   * @return depthSet  (Set&ltList&ltVertex&gt&gt)
+   *      A set that contains lists representing a depthFirstSearch 
+   *      corresponding to each vertex in the graph. 
+   * 
+   *      If the graph is empty, the returned set will also be empty
+   */
+  public static Set&ltList&ltVertex&gt&gt depthFirstSearch(Graph graph) {
+    // TODO: Implement this method
+    
+    Set&ltList&ltVertex&gt&gt depthSet = new HashSet&ltList&ltVertex&gt&gt();
+
+    List&ltVertex&gt vertices = graph.getVertices();
+
+    for (Vertex v : vertices) {
+      Vertex start = v;
+      List&ltVertex&gt df = depthFirstSearchHelper(start, graph);
+      depthSet.add(df);
+    }
+
+    return depthSet; 
+
+  }
+
+/**
+   * 
+   * @param v
+   *      The vertex for which a depth-First-Search will take place. 
+   *      Vertex v indicates the start point.
+   * @param graph
+   *      The graph being traversed to complete the depthFirst Search
+   * @return Path List (List&ltVertex&gt)
+   *      A List containing an order path of vertices visited when 
+   *      completing a depth first starting from vertex v. 
+   *      
+   *      If the graph does not contain the vertex v or if the graph
+   *      is empty, the function will return an empty list
+   *      
+   */
+  public static List&ltVertex&gt depthFirstSearchHelper(Vertex v, Graph graph) {
+    //Rep invariant is
+    //    !v.label.isEmpty()
+    
+    //Used a stack to store depth first search history
+    Stack&ltVertex&gt History = new Stack&ltVertex&gt();
+    List&ltVertex&gt Path = new ArrayList&ltVertex&gt();
+    HashSet&ltVertex&gt visited = new HashSet&ltVertex&gt();
+    Path.add(v);
+    visited.add(v);
+    History.push(v);
+    Vertex v1 = v;
+    
+    //Vertices are traversed. Each vertex is only visted once
+    while (!History.isEmpty()) {
+      v1 = History.peek();
+      List&ltVertex&gt tempDS = graph.getDownstreamNeighbors(v1);
+      if (tempDS.isEmpty()) {
+        History.pop();
+      } else {
+        boolean newConnections = false;
+        int i;
+        for (i = 0; i&lttempDS.size() && newConnections == false ; i++) {
+          v1 = tempDS.get(i);         
+          if(!visited.contains(v1) ) {
+            Path.add(v1);
+            visited.add(v1);
+            History.push(v1);
+            newConnections = true;
+          }
+            
+        }
+        if(newConnections == false) {
+          History.pop();
+        }
+      }
+
+    }
+
+    return Path;
+
+  }</pre></code>
+
+            <h2 class="section-heading">Breadth-First Searching</h2>
+            <p>Breadth-FIrst searching is an algorithm that can be used to traverse a graph. In this algorithm, the path begins at the selected vertex, and the path explores all the neighboring vertices before moving down to the next set of neighbors.</p>
+
+            <p>I implemented this algorithm using Queues in the following manner:</p>
+
+           <!-- <div class="text-center">              
+              <img class="img-fluid" src="img/breadthfirstsearch.jpg" alt=""> 
+              <img class="img-fluid" src="img/breadthfirstsearchhelper.jpg" alt="">         
+            </div> -->
+
+            <code><pre>
+  /**
+   * Perform a complete breadth first search of the given graph. Start with the
+   * search at each vertex of the graph and create a list of the vertices visited.
+   * Return a set where each element of the set is a list of elements seen by
+   * starting a BFS at a specific vertex of the graph (the number of elements in
+   * the returned set should correspond to the number of graph vertices).
+   *
+   * @param graph
+   *      The graph being traversed to obtain a breadthFirstSearch set
+   * @return breadthSet  (Set&ltList&ltVertex&gt&gt)
+   *      A set that contains lists representing a breadthFirstSearch 
+   *      corresponding to each vertex in the graph. 
+   * 
+   *      If the graph is empty, the returned set will also be empty
+   */
+  public static Set&ltList&ltVertex&gt&gt breadthFirstSearch(Graph graph) {
+            
+    
+    Set&ltList&ltVertex&gt&gt breadthSet = new HashSet&ltList&ltVertex&gt&gt();
+
+    List&ltVertex&gt vertices = graph.getVertices();
+
+    for (Vertex v : vertices) {
+      Vertex start = v;
+      List&ltVertex&gt bf = breadthFirstSearchHelper(start, graph);
+      System.out.println(bf);
+      breadthSet.add(bf);
+    }
+
+    return breadthSet;
+  }
+  
+  /**
+   * 
+   * @param v1
+   *      The vertex for which a breadth-First-Search will take place. 
+   *      Vertex v1 indicates the start point.
+   * @param graph
+   *      The graph being traversed to complete the BreadthFirst Search
+   * @return Path List (List&ltVertex&gt)
+   *      A List containing an order path of vertices visited when 
+   *      completing a breadth first starting from vertex v. 
+   * 
+   *      If the graph does not contain the vertex v or if the graph
+   *      is empty, the function will return an empty list
+   */
+  public static List&ltVertex&gt breadthFirstSearchHelper(Vertex v1, Graph graph) {
+    //Rep invariant is
+    //    !v1.label.isEmpty()
+    
+    //Used a Queue to store the vertices that needed to be visited 
+    List&ltVertex&gt Path = new ArrayList&ltVertex&gt();
+    HashSet&ltVertex&gt Visited = new HashSet&ltVertex&gt();
+    Queue&ltVertex&gt VerticesLeft = new LinkedList&ltVertex&gt();
+    Visited.add(v1);
+    Path.add(v1);
+    VerticesLeft.add(v1);
+
+    while (!VerticesLeft.isEmpty()) {
+
+      Vertex v = VerticesLeft.remove();
+      
+      List&ltVertex&gt downStream = graph.getDownstreamNeighbors(v);
+
+      for (Vertex temp : downStream) {
+        if (!Visited.contains(temp)) {
+          Visited.add(temp);
+          Path.add(temp);
+          VerticesLeft.add(temp);
+        }
+      }
+      
+
+    }
+
+    return Path;
+  }
+</pre></code>
+
+
+
+
+
+
+            
+           <!-- <p>Placeholder text by
+              <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by
+              <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>-->
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>

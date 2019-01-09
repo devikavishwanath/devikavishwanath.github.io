@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Clean Blog - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">PROJECTS</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <!--<li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="post.html">Sample Post</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>-->
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>Yelp-Database Clustering</h1>
+              <h2 class="subheading"> K-means Clustering </h2>
+              <span class="meta">Completed by
+                <a href="#">Devika Vishwanath</a>
+                Dec, 2017 for CPEN 221</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+
+            
+            <h2 class="section-heading">Introduction</h2>
+
+            <p>This project focused on implementing algorithms to organize Yelp Database information including Yelp Users, Yelp Restaurants and Yelp Reviews. Business and User obejcts were created. The classes of YelpRestaurant and YelpUser extended the Business and User classes respectively.<br> </p>
+
+            <h2 class="section-heading">YelpDatabase</h2>
+
+            <p>The following code describes my YelpDatabase object implementation. I chose to represent a database in the following way. This class implemented the "MP5Db" Interface provided to us in the CPEN 221 course. </p>
+
+            <code><pre>
+package ca.ece.ubc.cpen221.mp5;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.function.ToDoubleBiFunction;
+import java.util.stream.Collectors;
+
+import com.google.gson.Gson;
+
+
+public class YelpDB implements MP5Db&ltYelpDB&gt {
+  String restaurantsFile;
+  String usersFile;
+  String reviewsFile;
+  HashMap&ltString, YelpRestaurant&gt restaurants = new HashMap&lt&gt();
+  HashMap&ltString, YelpUser&gt users = new HashMap&lt&gt();
+  HashMap&ltString, YelpReview&gt reviews = new HashMap&lt&gt();
+
+  public YelpDB(String restaurantsFile, String usersFile, String reviewsFile) throws FileNotFoundException {
+    //Abstraction Function: represents a Yelp database containing a map of users, restaurants, and reviews
+    //Rep-Invariant: restaurants.contains(reviews.getRestaurantID)
+    this.restaurantsFile = restaurantsFile;
+    this.usersFile = usersFile;
+    this.reviewsFile = reviewsFile;
+    Gson gson = new Gson();
+    FileReader reader = new FileReader(restaurantsFile);
+    Scanner scanner = new Scanner(reader);
+    while (scanner.hasNextLine()) { 
+      YelpRestaurant restaurantObject = gson.fromJson(scanner.nextLine(), YelpRestaurant.class);
+      String business_id = restaurantObject.getBusiness_id();
+      restaurants.put(business_id, restaurantObject);
+    }
+    scanner.close();
+
+    FileReader userReader = new FileReader(usersFile);
+    Scanner userScanner = new Scanner(userReader);
+    while (userScanner.hasNextLine()) {
+      YelpUser userObject = gson.fromJson(userScanner.nextLine(), YelpUser.class);
+      String user_id = userObject.getUser_id();
+      users.put(user_id, userObject);
+    }
+    userScanner.close();
+    FileReader reviewReader = new FileReader(reviewsFile);
+    Scanner reviewScanner = new Scanner(reviewReader);
+    while (reviewScanner.hasNextLine()) {
+      YelpReview reviewObject = gson.fromJson(reviewScanner.nextLine(), YelpReview.class);
+      String review_id = reviewObject.getReview_id();
+      reviews.put(review_id, reviewObject);
+    }
+    reviewScanner.close();
+
+  }
+  /**
+   * 
+   * @param s
+   * the json string representing the details of the new restaurant being added to the Yelp Database
+   * @return
+   * returns the newly made restaurant object
+   */
+  
+  public YelpRestaurant addRestaurant(String s) {
+    Gson gson = new Gson();
+    YelpRestaurant restaurantObject = gson.fromJson(s, YelpRestaurant.class);
+    Integer BusinessID = (int) (Math.random() * 10);
+    while(this.restaurants.containsKey(BusinessID.toString())){
+      BusinessID = (int) (Math.random() * 10);
+    }
+    restaurantObject.setBusiness_id(BusinessID.toString());
+    restaurantObject.setStars(0.0);
+    String business_id = restaurantObject.getBusiness_id();
+    restaurants.put(business_id, restaurantObject);
+    return restaurantObject;
+    
+  }
+  
+  /**
+   * 
+   * @param s
+   * JSON string representing the name of the User
+   * @return
+   * the newly made YelpUser object
+   * @throws InvalidString
+   */
+  
+  public YelpUser addUser(String s) throws InvalidString {
+    Gson gson = new Gson();
+    YelpUser userObject = gson.fromJson(s, YelpUser.class);
+    
+    if(userObject.getName() == null) {
+      throw new InvalidString();
+    }
+     
+    
+    Integer UserID = (int) (Math.random() * 10);
+    while(this.restaurants.containsKey(UserID.toString())){
+      UserID = (int) (Math.random() * 10);
+    }
+    userObject.setUser_id(UserID.toString());
+    userObject.setUrl("http://www.yelp.com/user_details?userid=" + UserID.toString());
+    userObject.setAverage_stars(0.0);
+    userObject.setReview_count(0);
+    userObject.setType("user");
+    HashMap&ltString,Integer&gt votes = new HashMap&ltString,Integer&gt();
+    votes.put("funny", 0); votes.put("useful", 0); votes.put("cool",0);
+    userObject.setVotes(votes);
+    
+    String user_id = userObject.getUser_id();
+    users.put(user_id, userObject);
+    return userObject;
+  }
+  
+  /**
+   * 
+   * @param s
+   * A JSON string representing the details of the new review 
+   * @return
+   * The YelpReview object representing the newly created review
+   * @throws InvalidRestaurantID
+   * @throws InvalidUserID
+   */
+  public YelpReview addReview(String s) throws InvalidRestaurantID, InvalidUserID{
+    //RepInvariant: business id and user id associated with review must be valid, otherwise will throw 
+    //        InvalidRestaurantID/InvalidUserID exceptions
+    Gson gson = new Gson();
+    YelpReview reviewObject = gson.fromJson(s, YelpReview.class);
+    
+    if(!this.restaurants.containsKey(reviewObject.getBusiness_id())) {
+      throw new InvalidRestaurantID();
+    }
+    if(!this.users.containsKey(reviewObject.getUser_id())) {
+      throw new InvalidUserID();
+    }
+    
+    Integer ReviewID = (int) (Math.random() * 10);
+    while(this.restaurants.containsKey(ReviewID.toString())){
+      ReviewID = (int) (Math.random() * 10);
+    }
+    reviewObject.setReview_id(ReviewID.toString());
+    reviewObject.setStars(0);
+    reviewObject.setType("review");
+    HashMap&ltString,Integer&gt votes = new HashMap&ltString,Integer&gt();
+    votes.put("cool", 0); votes.put("funny", 0); votes.put("useful",0);
+    reviewObject.setVotes(votes);
+    
+    
+    String review_id = reviewObject.getReview_id();
+    
+    reviews.put(review_id, reviewObject);
+    return reviewObject;
+    
+  }
+  /**
+   * 
+   * @param business_id
+   * the business ID associated with a restaurant
+   * @return
+   * the YelpRestaurant object associated with the specified ID
+   * @throws InvalidRestaurantID 
+   */
+
+  public YelpRestaurant getRestaurant(String business_id) throws InvalidRestaurantID {
+    if(this.restaurants.containsKey(business_id))
+      throw new InvalidRestaurantID();
+
+    return restaurants.get(business_id);
+  }
+  /**
+   * 
+   * @param user_id
+   * the user id associated with a specific Yelp User
+   * @return
+   * the YelpUser object associated with the specified user id
+   */
+
+  public YelpUser getUser(String user_id) {
+
+    return users.get(user_id);
+  }
+
+  /**
+   * 
+   * @param review_id
+   * the review id associated with a specific Yelp review
+   * @return
+   * the YelpReview object associated with the specified review id
+   */
+  public YelpReview getReview(String review_id) {
+    return reviews.get(review_id);
+  }
+
+  @Override
+  public Set&ltYelpDB&gt getMatches(String queryString) {
+    // TODO Auto-generated method stub
+    Set&ltYelpDB&gt db = new HashSet&lt&gt();
+    db.add(this);
+    return db ;
+  }
+  /**
+   * @return String
+   * Returns a string representing a list of clusters in JSON format
+   * Each cluster is determined using K-means clustering and K-means plus plus initialization
+   * 
+   * 
+   */
+  @Override
+  public String kMeansClusters_json(int k) {
+    // TODO Auto-generated method stub
+    List&ltPoint&gt dataset = this.restaurants.values().stream().map(r -&gt new Point(r)).collect(Collectors.toList());
+    Kmeans kclusters = new Kmeans(dataset,k);
+    boolean reattempt = true;
+    List&ltSet&ltClusterObject&gt&gt clusterList = new ArrayList&lt&gt();
+    
+    while(reattempt) {
+      reattempt = false;
+      clusterList = kclusters.clustering();
+      //int count = 0;
+      for(Set&ltClusterObject&gt o : clusterList) {
+        if(o.isEmpty())
+          reattempt = true;
+        
+      }
+    }
+    
+    
+    
+    Gson gson = new Gson();
+    
+    System.out.println(gson.toJson(clusterList));
+    return gson.toJson(clusterList);
+  }
+
+  public ArrayList&ltPoint&gt getPoints() {
+    ArrayList&ltPoint&gt points = new ArrayList&ltPoint&gt();
+
+    for (String s : this.restaurants.keySet()) {
+      YelpRestaurant tempRestaurant = this.restaurants.get(s);
+      double longitude = tempRestaurant.getLongitude();
+      double latitude = tempRestaurant.getLatitude();
+      Point point = new Point(longitude, latitude, tempRestaurant);
+      points.add(point);
+    }
+
+    return points;
+  }
+
+  @Override
+  public ToDoubleBiFunction&ltMP5Db&ltYelpDB&gt, String&gt getPredictorFunction(String user) {
+    
+    List &ltInteger&gt x = this.reviews.keySet().stream()
+         .map( r-&gtthis.reviews.get(r))
+         .filter(r -&gt r.getUser_id().equals(user))
+         .map(r-&gt this.restaurants.get(r.getBusiness_id()).getPrice())
+         .collect(Collectors.toList());
+    List &ltInteger&gt y = this.reviews.keySet().stream()
+         .map( r-&gtthis.reviews.get(r))
+         .filter(r -&gt r.getUser_id().equals(user))
+         .map(r-&gtr.getStars())
+         .collect(Collectors.toList());
+    System.out.println(x);
+    System.out.println(y);
+     ToDoubleBiFunction&ltMP5Db&ltYelpDB&gt, String&gt userPredictor = new LinearRegression(x,y);
+     System.out.println(userPredictor);
+     return userPredictor; 
+     
+  } 
+
+  
+
+}
+</pre></code>
+            
+           <!-- <p>Placeholder text by
+              <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by
+              <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>-->
+
+
+            <h2 class="section-heading">K-means/K-means++ Clustering</h2>
+
+            <p>All restaurants had an associated longitude and latitude value describing their location. Therefore, I created an object called Point that represents a point with coordinates (x.y). Each Point object also had an associated restaurant name. K-means clustering was used to organize these restaurants (Points) into clusters based on their location. Each cluster had a corresponding centroid value.</p>
+
+            <p>K-means is an algorithm used to for cluster analysis and for partitioning data into n number of clusters. The method initializes by picking random points as centroids. The data is then analyzed, and points are allocated to their closest centroid. Once allocation is over, each point belongs to a cluster with a correponding centroid. The centroid values are then recalcuated by taking the mean of the elements in the cluseter. Once the new centroids are determined, the entire process is repeated. These set of steps continue to repeat till centroid locations, and cluster allocations no longer change. </p>
+
+            <p><b>K-means VS K-means++ Clustering:</b></p>
+            <p>The main difference between K-means and K-means++ Clustering is the process of picking the initial centroids. In K-means++ Clustering the initialization method is not random. <br>
+            The initialization method of K-means++ involves the following steps: </p>
+            <ol>
+              <li>An initial random centroid point is chosen</li>
+              <li>For each point in the dataset (each restaurant) the distance from the point to the centroid is calculated</li>
+              <li>A probability distribution is created using the distance values. High probability is allocated to datapoints that are not near any of the previously chosen centers. (Probability is proportional to distance<sup>2</sup>)</li>
+
+              <li>A new centroid is chosen according to the probability distribution</li>
+              <li>Steps 2,3 and 4 are repeated till the required number of centroids (for n clusters) is chosen. Then K-means clustering takes place.</li>
+            </ol>
+
+            <p>This initialization methods ensures that the centroids are initially spread far apart, therefore reducing the number of iterations required to cluster the points. The following code describes my personal implementation of this clustering method:</p>
+
+            <code><pre>
+package ca.ece.ubc.cpen221.mp5;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+public class Kmeans {
+  private List&ltPoint&gt dataset;
+  private int numCluster;
+  
+  /**
+   * 
+   * @param dataset
+   * A list of points representing the dataset for which clustering will occur
+   * @param numCluster
+   * An integer representing the desired number of clusters the dataset should
+   * be assigned to
+   */
+
+  public Kmeans(List&ltPoint&gt dataset, int numCluster) {
+    //Abstraction Function: a group of points that need to be clustered in 
+    //            association with a numerical value representing 
+    //            the number of desired clusters
+    //Rep-Invariant: !dataset.isEmpty
+    this.dataset = dataset;
+    this.numCluster = numCluster;
+  }
+
+  /**
+   * 
+   * @return HashSet&ltPoint&gt
+   * returns the initial centroids chosen using the K-means plus plus
+   * initialization method
+   * 
+   */
+  public HashSet&ltPoint&gt getInitialCentroids() {
+    Random rand = new Random();
+    HashMap&ltPoint, Double&gt probDistribution = new HashMap&ltPoint, Double&gt();
+    HashSet&ltPoint&gt centroids = new HashSet&ltPoint&gt();
+
+    int centerIndex = rand.nextInt(this.dataset.size() - 1);
+    Point center = new Point(this.dataset.get(centerIndex).getLatitude(),
+        this.dataset.get(centerIndex).getLongitude(), this.dataset.get(centerIndex).getRestaurant());
+    centroids.add(center);
+    while (centroids.size() &lt this.numCluster) {
+      double sum = 0.0;
+      for (Point p : this.dataset) {
+        double nearestCentroid = centroids.stream().map(c -&gt Math.pow(c.getDistance(p), 2))
+            .reduce(Double.MAX_VALUE, Double::min);
+        probDistribution.put(p, nearestCentroid);
+        sum += nearestCentroid;
+      }
+      final double sumF = sum;
+      probDistribution.forEach((p, v) -&gt probDistribution.put(p, v / sumF));
+      centroids.add(pickCentroid(probDistribution));
+    }
+    return centroids;
+  }
+
+  /**
+   * 
+   * @param probabilityDistribution
+   * a map representing the probability distribution for a set of points
+   * probability values are dependent on the location of a point in comparison
+   * to the chosen centroids
+   * @return Point
+   * returns a point chosen from the probability distribution map in 
+   * accordance with a probability distribution
+   * 
+   */
+  public Point pickCentroid(HashMap&ltPoint, Double&gt probabilityDistribution) {
+    double random = Math.random();
+    double cumulativeProbability = 0.0;
+    for (Point p : probabilityDistribution.keySet()) {
+      double probability = probabilityDistribution.get(p);
+      cumulativeProbability += probability;
+      if (random &lt= cumulativeProbability) {
+        return p;
+      }
+    }
+    return null;
+  }
+  
+  /** 
+   * 
+   * @return List&ltSet&ltClusterObject&gt&gt
+   * returns a list of sets of ClusterObjects. Each set represents a cluster 
+   * determined using the kmeans clustering method
+   */
+
+  public List&ltSet&ltClusterObject&gt&gt clustering() {
+    HashMap&ltPoint, Set&ltPoint&gt&gt clusters = new HashMap&ltPoint, Set&ltPoint&gt&gt();
+    HashSet&ltPoint&gt centroids = this.getInitialCentroids();
+    HashSet&ltPoint&gt centroidsPrev = new HashSet&ltPoint&gt();
+
+    while (!this.checkMatch(centroidsPrev, centroids)) {
+      clusters.clear();
+      for (Point c : centroids)
+        clusters.put(c, new HashSet&ltPoint&gt());      
+      centroidsPrev = centroids;
+      
+      for (Point p : this.dataset) {
+        Point closest = Collections.min(centroids, Comparator.comparingDouble(c -&gt c.getDistance(p)));
+        Set&ltPoint&gt set = clusters.get(closest);
+        set.add(p);
+        clusters.put(closest, set);
+      }
+      centroids = this.getCentroids(clusters);
+    }
+
+    List&ltSet&ltClusterObject&gt&gt clusterList = new ArrayList&ltSet&ltClusterObject&gt&gt();
+    Integer clusterNum = 0;
+    for (Point centroid : clusters.keySet()) {
+      clusterNum++;
+      Integer n = clusterNum;
+      Set&ltPoint&gt group = clusters.get(centroid);
+      clusterList.add(group.stream().map(p -&gt new ClusterObject(p, centroid, n)).collect(Collectors.toSet()));
+    }
+    return clusterList;
+  }
+  
+  /**
+   * 
+   * @param clusters
+   * sets of points for which centroids must be found
+   * @return HashSet&ltPoint&gt
+   * a hashset of points representing the newly computed cluster centroids (measured 
+   * by taking the means of longitudes and latitudes of the cluster points)
+   */
+
+  public HashSet&ltPoint&gt getCentroids(HashMap&ltPoint, Set&ltPoint&gt&gt clusters) {
+    HashSet&ltPoint&gt newCentroids = new HashSet&ltPoint&gt();
+
+    for (Point c : clusters.keySet()) {
+      List&ltDouble&gt longitudes = new ArrayList&ltDouble&gt();
+      List&ltDouble&gt latitudes = new ArrayList&ltDouble&gt();
+      clusters.get(c).stream().mapToDouble(x -&gt x.getLongitude()).forEach(longitudes::add);
+      clusters.get(c).stream().mapToDouble(x -&gt x.getLatitude()).forEach(latitudes::add);
+      Double averageLong = longitudes.stream().mapToDouble(val -&gt val).average().getAsDouble();
+      Double averageLat = latitudes.stream().mapToDouble(val -&gt val).average().getAsDouble();
+      newCentroids.add(new Point(averageLat, averageLong));
+    }
+
+    return newCentroids;
+
+  }
+  
+  /**
+   * 
+   * @param prevPoints
+   * @param currentPoints
+   * @return boolean
+   * checks if prevPoints contains equal Point objects as currentPoints (latitudes
+   * and longitudes are equivalent between points)
+   */
+  private boolean checkMatch(HashSet&ltPoint&gt prevPoints, HashSet&ltPoint&gt currentPoints) {
+
+    HashSet&ltDouble&gt xPrev = new HashSet&ltDouble&gt();
+    HashSet&ltDouble&gt yPrev = new HashSet&ltDouble&gt();
+    HashSet&ltDouble&gt xCurr = new HashSet&ltDouble&gt();
+    HashSet&ltDouble&gt yCurr = new HashSet&ltDouble&gt();
+    prevPoints.stream().mapToDouble(a -&gt a.getLatitude()).forEach(xPrev::add);
+    prevPoints.stream().mapToDouble(a -&gt a.getLongitude()).forEach(yPrev::add);
+    currentPoints.stream().mapToDouble(a -&gt a.getLatitude()).forEach(xCurr::add);
+    currentPoints.stream().mapToDouble(a -&gt a.getLongitude()).forEach(yCurr::add);
+
+    if (xPrev.equals(xCurr) && yPrev.equals(yCurr))
+      return true;
+
+    return false;
+  }
+
+}
+    </pre></code>
+
+            <!--<div class="text-center">              
+              <img class="img-fluid" src="img/kmeans.jpg" alt=""> 
+              <img class="img-fluid" src="img/centroidsinitialization.jpg" alt=""> 
+              <img class="img-fluid" src="img/probability dist.jpg" alt="">              
+            </div> -->
+            <br>
+
+          </div>
+
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <!--<footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>-->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>

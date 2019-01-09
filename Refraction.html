@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Clean Blog - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">PROJECTS</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="post.html">Sample Post</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>The Effect of Salinty on Refraction</h1>
+              <h2 class="subheading">Amplitude Modulated System</h2>
+              <span class="meta">Completed by
+                <a href="#">Devika Vishwanath</a>
+                February, 2014</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <h2 class="section-heading">Introduction</h2>
+
+            <p>Free-space laser communication is a method of using lasers to transmit data without the use of media, such as optical cables. I have been interested in the properties of lasers and its applications for more than a year. When I learned that NASA is now working on developing free-space laser communication technologies, I became curious due to its inherent advantages, which are as below:</p>
+
+            <ol>
+              <li>Free-space laser communication does not require a fiber optic cable. This makes it adaptable to areas where installing infrastructures are a challenge, such as space communication, communication at remote areas, disastrous areas, and emergency requirements.</li>
+              <br>
+
+              <li>Since free-space communication requires line of sight conditions, it is totally secured, compared to radio communication.</li>
+              <br>
+              <li>Since laser beams are collimated and coherent, there is low beam divergence, which results in tremendous power saving. This power saving property is extremely useful in long distance space-ship communication and applications where equipment size is constrained to be small.</li>
+             </ol>
+
+            <p>As I tried to design a free-space laser communication system, I could not find enough research material that was relevant to my requirement. That prompted me to start this project. This project focused on researching to find the optimum design for a free-space laser communication transceiver system. In this project, a signal was superimposed on a carrier laser beam, using amplitude modulation. The bias voltages were optimized for the system by plotting its input/output characteristics and choosing the right operating voltage range. </p>
+
+            <p>Purpose: Is it possible to design a free-space (wireless) laser communication system, with commonly available components, that uses laser as a carrier wave to carry audio signals with minimum distortion?</p>
+
+
+            <h2 class="section-heading">Objective</h2>
+
+            <p>The objective of this experiment was to design a modulator circuit for a laser beam and test if the laser beam could be successfully modulated to carry an audio signal through free space.</p>
+
+            <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/free space laser communication 9.jpg" alt="">
+            </a>
+            </div>           
+            
+
+            <p>It is possible to design a modulator for audio signals using a class A amplifier circuit made out of commonly available components. This modulator can modulate the output power of a laser source linearly. The emitted laser can be detected wirelessly at a distance and demodulated to retrieve the audio signal with minimum distortion.</p>
+
+            <ol>
+              <li>Using commonly used transistors, it is possible to design a class A amplifier for audio signals. (Class A amplifiers have linear input/output characteristics, which mean that the signals are amplified without distortion. Class A amplification happens over specific voltage ranges.)</li>
+              <br>
+              <li>The output currents of the above amplifier can be used to modulate a laser source. </li>
+              <br>
+              <li>Laser diodes, when biased forward, have power outputs that are linearly related to the current over specific operating ranges.</li>
+              <br>
+              <li>Laser detectors, such as photovoltaic cells, have a range of output voltages that are linearly related to the incident radiation power. </li>
+            </ol>
+
+            <p>Considering the above premises, it is possible that there could be an overlapping voltage range that is common to all the above systems where their input/output characteristics are linear.</p>
+
+            <blockquote class="blockquote">The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>
+
+            
+
+            
+            <h2 class="section-heading">Stage 1</h2>
+
+
+            <p>A variable voltage supply circuit was chosen, modified and fabricated, capable of providing stable voltages from 0V - 12V. Potentiometers used for course and fine adjustment of input voltage.</p>
+
+            <a href="#">
+              <img class="img-fluid" src="img/Stage1-Supply.jpg" alt="">
+            </a>
+            <span class="caption text-muted">Modified Variable Voltage Supply</span>
+
+            <h2 class="section-heading">Stage 2</h2>
+            <blockquote class="blockquote">Linear Range of Photovoltaic Output and Corresponding Laser Voltage Range</blockquote>
+
+            <p>A class A biased single stage audio amplifier was chosen, modified and fabricated. The laser source was connected to it. The input/output characteristic of the laser source was experimented on, to see if the laser source was capable of responding to audio frequencies.</p>
+            <p>Afterwards, the output was tested to see if it was linearly related to the input at some input range. The output intensity of the laser beam was detected and measured using a photovoltaic cell, which also worked as a receiver in the final system.</p>
+
+            <a href="#">
+              <img class="img-fluid" src="img/Stage2-firstmod.jpg" alt="">
+            </a>
+            <span class="caption text-muted">Laser Modulator</span>
+
+            <p>Transistor:<br> I chose the 2N3904 as it had its β (hfe) peaking at 10mA. 10mA is close to the laser source’s maximum current capacity which was around 30mA</p>
+            
+
+            <p>Voltmeter 1 - Connected between the supply voltage and ground. </p>
+            <p>Voltmeter 2 - Connected across the laser source</p>
+            <p>Voltmeter 3 - Connected across the output of the photovoltaic cell</p>
+            <br>
+
+            <a href="#">
+              <img class="img-fluid" src="img/Transmitter Photo.jpg" alt="">
+            </a>
+            <span class="caption text-muted">Transmitter (Voltage Supply and Modulator)</span>
+            <br>
+
+            <a href="#">
+              <img class="img-fluid" src="img/Masked Photovoltaic Cell.jpg" alt="">
+            </a>
+            <span class="caption text-muted">Photovoltaic Cell Receiver</span>
+
+
+
+            <p><b>Data and Observations</b></p>
+            <p>The following are the observations and the graph from Stage 2. The input voltage (supply voltage from the variable voltage power supply) was varied and corresponding voltages from the photovoltaic cell was measured and tabulated.
+            </p>
+
+            <div class="text-center">
+              <a href="#">
+                <img class="img-fluid" src="img/graph1-InputvsOutput.jpg" alt="">
+              </a>
+              <span class="caption text-muted">Supply Input Vs. Photovoltaic Cell Output 
+              </span>
+            </div>
+            <p>From the above graph, we can see that the laser’s turn-on threshold is around 2.86V and the saturation voltage is around 3.66V.</p>
+            <p>From the above graph, we can observe that the input/output characteristic is a straight line between 2.92V and 3.22V.</p>
+
+            <p>Based on this range the voltage drop across the laser for the voltages between the above two linear voltage boundaries was measured.</p>
+            <div class="text-center">
+              <a href="#">
+                <img class="img-fluid" src="img/graph2-laservsoutput.jpg" alt="">
+              </a>
+              <span class="caption text-muted">Laser Voltage Vs. Photovoltaic Cell Output 
+              </span>
+            </div>            
+            <p>The range of potential difference, <b>2.447V to 2.597V</b>, for the x-axis values on this graph, was determined from the linear input range from the earlier graph</p>
+
+            <h2 class="section-heading">Stage 3</h2>
+            <blockquote class="blockquote">Amplifier Linear Output Range and Overlap with Laser Voltage Range</blockquote>
+
+            <p>The class A biased single stage audio amplifier, from stage 2, was configured to drive and modulate the laser. It was then given different input voltages and the output voltages were measured. The objective was to find if there was an output voltage range for the class A amplifier that would match with the input voltage range of the laser. The match should be in such a way that both these devices would be aligned within the same voltage range that has linear input/output relationship.</p>
+
+            <p>The base bias resistor was replaced by a trimmer potentiometer in order to facilitate variable biasing at the transistor base.</p>
+
+            <a href="#">
+              <img class="img-fluid" src="img/Stage3-modifiedmod.jpg" alt="">
+            </a>
+            <span class="caption text-muted">Laser Modulator</span>             
+
+            <p>For each supply voltage, I changed the bias voltages over a range using the potentiometer, and observed the voltage across the laser for each distinct value. This was to see if it was within the laser’s linear voltage range.</p>
+
+            <p>Input Voltage (Laser Voltages in Linear Range): <b>3.4 V</b></p>
+
+            <a href="#">
+              <img class="img-fluid" src="img/Base Voltage Vs Potential Difference Across Laser and Collector Voltage.jpg" alt="">
+            </a>
+            <span class="caption text-muted">Base Voltage Vs Laser Voltage - Input: 3.4V</span>  
+
+            <p>Since V<sub>L</sub> was linearly varying with V<sub>B</sub> (base voltage), the modulator operated in class A configuration</p>
+            <p>Even though this configuration was offering a linear range between 1.54V and 1.76V for the V<sub>B</sub>, this entire range was not usable since the linear input/output voltage range for the laser did not exactly coincide with this range.Comparing the graph from Stage 2 as well as the current graph above, I got the following ranges for V<sub>L</sub>: </p>
+            <ol>
+              <li>Range of 2.447V to 2.597V from Stage 2 </li>
+              <li>Range of 2.42V to 2.54V from Stage 3</li>
+            </ol>
+            <p>The overlapping range was from <b>2.447V to 2.54V</b>. This was the only range where the laser output linearly varied with the base voltage of the modulator for a supply voltage of 3.4V</p>
+
+            <p><b>The voltage bandwidth = 2.54V - 2.447V = 0.093V </b></p>
+
+            <p>I repeated the above analysis with a supply voltage of 3.3 V</p>
+            <p>Input Voltage (Laser Voltages in Linear Range): <b>3.3 V</b></p>
+
+            <a href="#">
+              <img class="img-fluid" src="img/Base Voltage Vs Potential Difference Across Laser and Collector Voltage - 3.3.jpg" alt="">
+            </a>
+            <span class="caption text-muted">Base Voltage Vs Laser Voltage - Input: 3.3V</span> 
+
+            <p>Comparing the graph from Stage 2 as well as the curent graph above, I got the followoing ranges for V<sub>L</sub>:</p>
+            <ol>
+              <li>Range of 2.447V to 2.597V from Stage 2 </li>
+              <li>Range of 2.46V to 2.6V from Stage 3</li>
+            </ol>
+
+            <p><b>The voltage bandwidth = 2.597V - 2.46V = 0.137V </b></p>
+            <br>
+
+            <p>Therefore, the two scenarios were:</p>
+            <ol>
+              <li>For Supply Voltage = 3.4V<br>Voltage Range for Linear Operation = 2.447V to 2.54V<br>Therefore, Voltage Bandwidth = 2.54V – 2.447V = 0.093V </li>
+              <br>
+              <li>For Supply Voltage = 3.3V<br> Voltage Range for Linear Operation = 2.46V to 2.597V<br> Therefore, Voltage Bandwidth = 2.597V – 2.46V = 0.137V</li>
+            </ol>
+            <br>
+
+
+            <a href="#">
+              <img class="img-fluid" src="img/Supply Voltage Bandwidths.jpg" alt="">
+            </a>
+            <span class="caption text-muted">Laser Voltage Bandwidth For Supply Voltages</span> 
+
+
+            <p>The supply voltage of 3.3V gave a better bandwidth. Therefore 3.3V was the ideal supply voltage. </p>
+            <br>
+
+
+            <h2 class="section-heading">Stage 4</h2>
+            <blockquote class="blockquote">Final Test of Transmitter/Receiver Combination with a 1kHz audio frequency</blockquote>
+
+            <p><b>Supply Voltage: 3.3V</b></p>
+            <p><b>Linear Laser Voltage Range (V<sub>L</sub>): 2.46V to 2.597V </b></p>
+            
+
+            <p>Base Bias Voltage Range (V<sub>B</sub>): 1.463V to 1.6V</p>
+            <p>We can take the mid-value of the above base bias voltage range to obtain the ideal base bias voltage.</p>
+
+
+            <p><b>Ideal Base Bias Voltage = 1.5315V</b></p>
+
+            <p>An audio transmission was used to test the system. The audio generator was an app called Test Tone that I had downloaded onto my smart-phone. It was tested using a software oscilloscope on my laptop called Soundcard Scope 1.40. A screenshot of the input wave (1kHz) was taken. </p>
+
+            <a href="#">
+              <img class="img-fluid" src="img/Laser to Photovoltaic Cell.jpg" alt="">
+            </a>
+            <span class="caption text-muted">Transmission System</span>
+
+
+            <p>The modulated wave which had travelled through free space and was detected by the photovoltaic cell receiver was fed into the ampli-speaker. The output of the speaker, which was sound waves of 1kHz frequencies (demodulated by the photovoltaic cell), was fed into the software oscilloscope using the inbuilt microphone of my laptop.  A screenshot of the waveform (output wave) was taken. </p>
+
+
+            <p>The screenshots of the input signal as well as the output signal as mentioned above are given below</p>
+
+            <a href="#">
+              <img class="img-fluid" src="img/input wave.jpg" alt="">
+            </a>
+            <span class="caption text-muted">Input Signal 1kHz</span> 
+            <br>
+
+            <a href="#">
+              <img class="img-fluid" src="img/output wave.jpg" alt="">
+            </a>
+            <span class="caption text-muted">Output Signal at Ampli-Speaker</span> 
+
+
+            <h2 class="section-heading">Conclusion</h2>
+            <blockquote class="blockquote">Results and Findings</blockquote>
+
+            <p>The following supply voltage and base voltage would give a linear input/output characteristic as well as the widest linear range for the entire system (that included the transmitter and the receiver that was designed in this project). </p> 
+            <ul>
+              <li style="list-style-type: none;"><b>The Supply Voltage = 3.3V DC</b></li>
+              <li style="list-style-type: none;"><b>The Base Bias Voltage = 1.5315V DC</b></li>
+            </ul>
+
+            <p>This will also ensure that,</p>
+            <ul >
+              <li style="list-style-type: none;"><b>The Range of Potential Difference across the Laser = 2.46V to 2.597V
+              </b></li>
+            </ul> 
+
+            <br>
+            <br>
+
+            <a href="#">
+              <img class="img-fluid" src="img/Entire System.jpg" alt="">
+            </a>
+            <span class="caption text-muted">Transmitter/Receiver System</span> 
+            
+            <p>I was able to design a modulator for audio signals using a class A amplifier circuit that modulated the output power of a laser source linearly, so that the emitted laser beam could be detected wirelessly at a distance and demodulated to retrieve the audio signal with minimum distortion.</p>
+
+
+            
+            <p>Placeholder text by
+              <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by
+              <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>
