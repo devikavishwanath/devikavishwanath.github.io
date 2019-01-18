@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Project Profile - Devika Vishwanath</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">PROJECTS</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <!--<li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="post.html">Sample Post</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>-->
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/dispersion/space.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>Voyager: Dispersion and Space Communication</h1>
+              <!--<h2 class="subheading"> Pulse-Width Modulated System </h2>-->
+              <span class="meta">Completed by
+                <a href="#">Devika Vishwanath</a>
+                April, 2016</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            
+            <h2 class="section-heading">Introduction</h2>
+            <p>The Voyager 1 spacecraft has been moving away from us since the year 1997. (NASA, 2015) It has now left our solar system and continues to transmit data to the earth. This project aims at looking at the nature of this communication system. After participating in science fair with a topic on free-space laser communication for space-communication, I was interested in researching other means of communication used in spacecrafts. This lead to researching on communication using microwaves (1.6 – 30 GHz) (Nave, EMS, 2013). However, when researching on this topic, the most significant difference I noticed between these two types of communication was the dispersion factor. Laser communication has dispersion much smaller than that of radio communication. Therefore, this prompted me to study the energy required to transmit data and how this energy is reduced due to dispersion of the waves communicated. </p>
+
+            <p>The aim of the following project is to find the percent difference between the energy transmitted by Voyager 1’s X-band (8-12 GHz) transmitting dish and the energy received by the Earth’s Deep Space Station 63 dish, over the next ten years. This difference was found by first calculating the total energy transmitted using the constant transmission power (Watts). Then the power received each year was calculated. The total energy was then found by integrating the power with respect to time.  </p>
+
+            <h2 class="section-heading">Data Values:</h2>
+
+            <p>The following values were obtained for the Voyager 1 spacecraft.</p>
+
+            <ul>
+              <li>Velocity (v): 17,027 m/s (NASA, 2015)</li>
+              <li>Current distance (dc): 20,104, 905, 800, 000 m (estimated value from December 30, 2015 as dc is constantly changing) (NASA, 2016)</li>
+              <li>Diameter of Voyager X-band Transmitting Dish (D1): 3.7m (NASA, 2010)</li>
+              <li>Power Transmitted (Pt): 18W (NASA, 2002)</li>
+              <li>Frequency Transmitted (f): 8.42 GHz (NASA, 2015)</li>
+              <li>Aperture Efficiency (eA) = 0.55 (University of Hawaii, 2011)</li>
+              <li>Diameter of Earth Receiving Dish (DSS63) (D2): 70m (NASA, 2015)</li>
+              <li>Speed of light (c): 299,792,458 m/s (Britannica, 2015)</li>
+            </ul>
+
+            <h2 class="section-heading">Calculation of Transmission Wavelength (λ)</h2>
+            <p>The transmission wavelength can be calculated using the provided frequency of transmission which is 8.42GHz as well as the speed of light which is 299,792, 458 m/s </p>
+
+            <p>$$λ = \frac{c}{f}$$</p>
+
+            <p>Where λ is wavelength in metres, c is speed of light in m/s, and ν is frequency in Hz</p>
+
+            <p>$$λ = \frac{299.792,458}{8.42 * 10^9}$$</p>
+            <p>Transmission wavelength: $$λ = 0.0356 m$$</p>
+
+
+            <h2 class="section-heading">Calculation of Antenna Gain Values</h2>
+            <p>The gain of a dish antenna can be calculated using the following equation (Anderson, 2003)</p>
+
+            <p>$$G = \big(\frac{\pi D}{λ}\big)^2 \times e_A$$</p>
+            <p>Where G is the gain value (does not have unit), D is the diameter of the dish in metres, λ is the transmission wavelength in m (0.0356 m), and eA is the aperture efficiency (0.55) (does not have unit)</p>
+
+            <p>The gain of the Voyager X-band Transmitting Dish can be calculated using D1 (3.7 m) </p>
+
+            <p>$$G_t = \big( \frac{\pi (3.7)}{0.0356}\big)^2 \times 0.55$$</p>
+            <p>$$G_t = 5.86 \times 10^4$$</p>
+
+            <p>The gain of  the DSS63 Receiving dish on Earth can be calculated using D2 (70 m)</p>
+
+            <p>$$G_r=\big(\frac{π(70)}{0.0356}\big)^2 \times 0.55$$</p>
+            <p>$$G_r = 2.10 \times 10^7$$</p>
+
+            <h2 class="section-heading">Distance Calculations</h2>
+
+            <p>The current distance of the Voyager 1 spacecraft (d<sub>c</sub>) is 20,104, 905, 800, 000 m. The Voyager 1 is moving at a constant velocity of 17,027 m/s. Therefore, the distance is continuously changing over time. This change is the cause for the reduction of power received from the spacecraft’s antenna. The time length taken for this study is a course of 10 years and the power received at the end of each of these years was calculated. Since the values for velocity are in m/s, each year was given a corresponding time value in seconds. These values can be seen in the table</p>
+
+            <p>Since the velocity is constant, the change in displacement, which in this case is the distance from earth, must be linear. Therefore the distance can be represented with the equation y=mx+ b</p>
+
+            <p>The distance from earth can be calculated using d=vt, where d represents distance, v represents velocity and t represents time. </p>
+
+            <p>The year of 2015 is taken as the value of zero for time (t) in years. Since the initial distance at the end of 2015 is 20,104, 905, 800, 000 m (d<sub>c</sub>) this would be the y-intercept, as represented by b in the equation y=mx+b. We also know the slope (represented by m) is velocity (v) in m/s. Therefore, the following equation can be established:</p>
+
+            <p>$$d = vt + d_c$$</p>
+
+            <p>Where d is distance in metres, v is velocity in m/s, t is time in seconds and d<sub>c</sub> is the current distance (20,104, 905, 800, 000 m) in metres.</p>
+
+            <p>The above equation was applied to each time (s) value and the following distance values were calculated:</p>
+
+            <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/dispersion/table1.jpg" alt="">
+              </a>
+              <span class="caption text-muted"></span>
+            </div>  
+
+            <p>The above table yields the following graph:</p>
+
+
+            <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/dispersion/graph1.jpg" alt="">
+              </a>
+              <span class="caption text-muted"></span>
+            </div>     
+
+
+          <h2 class="section-heading">Calculation of Power</h2>
+
+          <p>Radio waves from the dish antenna of the Voyager 1 spacecraft disperse as the travel towards the earth. Due to the dispersion, the earth’s antenna only receives a fraction of the power at which the waves are transmitted.  The intensity of light decreases as you move farther from the light. This change in intensity follows the inverse square law which states that the intensity of light is inversely proportional to the square of the distance from the light. (Nave, 2014) The dispersion of radio waves must work in the same way. The reduction of power over distance is analogous to reduction of light intensity over distance. Therefore the power received (P<sub>r</sub>) must be inversely proportional to the distance (d). This gives rise to the following equation: </p>
+
+          <p>$$P_r = \frac{k}{d^2}$$</p>
+
+          <p>Where P<sub>r</sub> is the power received in Watts, d is distance from earth in metres and k is a constant. The Friis equation (Ohio State University, 2013) describes the ratio between the powers of a transmission dish antenna and the amount of power received by the receiving dish antenna. This is stated below:</p>
+
+          <p>$$\frac{P_r}{P_t} = G_t G_r \big(\frac{\lambda}{4\pi d}\big)^2 \times e_A$$</p>
+
+          <p>Where, for this purpose, Pr is the power received by earth’s antenna in W, Pt is the power transmitted by Voyager 1’s antenna in W, Gt is the gain of Voyager 1’s antenna, Gr is the gain of Earth’s DSS63 antenna, λ is the transmitted wavelength in metres, d is Voyager’s distance from earth in metres, and eA is the aperture efficiency constant of 0.55.  </p>
+
+          <p>The following values have previously been established:</p>
+
+          <ul>
+            <li>P<sub>t</sub> = 18 W</li>
+            <li>λ (calculated previously) = 0.0356 m</li>
+            <li>G<sub>t</sub> (calculated previously) = 5.86 x 10<sup>4</sup></li>
+            <li>G<sub>r</sub> (calculated previously) = 2.10 x 10<sup>7</sup></li>
+
+          </ul>
+
+          <p>The Friis equation can be re-arranged to obtain P<sub>r</sub></p>
+          <p>$$P_r = P_t G_t G_r \big(\frac{\lambda}{4\pi d}\big) \times e_A$$</p>
+
+          <p>In order to calculate the power received at the end of each year, the distance values corresponding to each year can be used. If the fraction (1/d<sup>2</sup>) is isolated, we can determine the constant k. Expanding the above equation gives, </p>
+
+          <p>$$P_r = P_t G_t G_r \big(\frac{\lambda}{4\pi }\big) \big(\frac{1}{d^2}\big) \times 0.55$$</p>
+
+          <p>And, $$P_r  = \frac{k}{d^2}$$</p>
+          <p>Therefore, $$k = P_t G_t G_r \big(\frac{\lambda}{4\pi }\big) \times 0.55 $$</p>
+
+          <p>Plugging in the variables for the above equation gives, $$k = 9.52 \times 10^9$$ $$P_r = \frac{9.52 \times 10^9}{d^2}$$</p>
+
+          <p>Therefore, using this equation the following data values for Pr were calculated:</p>
+
+          <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/dispersion/table2.jpg" alt="">
+              </a>
+              <span class="caption text-muted"></span>
+            </div>  
+
+            <p>The above table yields the following graph:</p>
+
+          <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/dispersion/graph2.jpg" alt="">
+              </a>
+              <span class="caption text-muted"></span>
+            </div>
+
+            <p>The equation for the above graph relates distance (m) with the power received (P<sub>r</sub>). In order to establish the relationship between Pr and t, d must be substituted with its function:</p> 
+
+            <p>$$d = vt + d_c$$</p>
+            <p>$$P_r = \frac{9.52 \times 10^9}{d^2}$$</p>
+
+            <p>Therefore, substituting for d, the following equation is obtained</p>
+            <p>$$P_r = \frac{9.52 \times 10^9}{(vt + d_c)^2}$$</p>
+            <p>$$P_r = \frac{9.52 \times 10^9}{(v^2t^2 + 2vd_ct + d_c ^ 2)}$$</p>
+
+            <p>The values for v and dc can be substituted in the above equation to get,</p>
+            
+            <p>$$P_r = \frac{9.52 \times 10^9}{(2.899 \times 10^8)t^2 + (6.847 \times 10^{17})t + (4.042 \times 10^{26}))}$$</p>
+
+            <h2 class="section-heading">Calculation of Energy</h2>
+
+            <p>To calculate energy, the following equation is used. </p>
+            <p>$$E = P (t_{total})$$</p>
+            <p>Where E is energy in Joules, P is power in W and t<sub>total</sub> is the total is time in seconds.</p>
+            <p>The energy used to transmit data from the Voyager 1 over the course of ten years can be calculated using the following equation $$E_t = P_t(t_{total})$$</p>
+            <p>Where E<sub>t</sub> is energy of transmission over ten years in Joules, Pt is the transmission power (18 W), and ttotal is the total time in seconds.</p>
+            <p>$$10 years = 3.1536 \times 10^8 seconds$$</p>
+            <p>Therefore Et is, $$E_t = (18)(3.1536 \times 10^8)$$</p>
+            <p>$$E_t = 5.68 \times 10^9 J$$</p>
+
+            <p>However, the energy received is calculated differently. Since power received varies over the ten year period, as seen in the last graph, the amount of energy received must be calculated by taking the area under the curve. Therefore,</p>
+
+            <p>$$E_r = \int P_r dt$$ $$E_r = \int \frac{9.52 \times 10^9}{(2.899 \times 10^8)t^2 + (6.847 \times 10^{17})t + (4.042 \times 10^{26})}$$</p>
+            <p>The above equation is a reciprocal quadratic function. Therefore the denominator is in the form ax2 + bx + c. In order to make it easier to simplify this quadratic, the coefficients and constants will be replaced with letters. </p>
+            <ul>
+              <li>Let h = 9.52 x 10<sup>9</sup></li>
+              <li>Let x = 2.899 x 10<sup>9</sup></li>
+              <li>Let y = 6.847 x 10<sup>17</sup></li>
+              <li>Let z = 4.042 x 10<sup>26</sup></li>
+            </ul>
+            <p>Therefore,</p>
+            <p>$$E_r = \int \frac{h}{xt^2 + yt + z} dt$$$$E_r = \int \frac{1}{xt^2 + yt + z} dt$$</p>
+
+            <p>The form of the above equation must be changed in order to derive the integral. In order to be able to solve the above equation, it would have to be changed to the form 1/g2+1 as its integral is arctan(g) (Ditutor, 2015)</p>
+
+            <p>$$\int \frac{1}{1+ g^2} dg = tan^{-1} g$$</p>
+
+            <p>In order to get this form with the E<sub>r</sub> equation, completing the square was used first used in the denominator,</p>
+            <p>$$E_r = h \int \frac{1}{(xt^2 + yt + (\frac{y}{2\sqrt x})^2) - (\frac{y}{2\sqrt x})^2 + z} dt$$</p>
+
+            <p>$$E_r = h \int \frac{1}{(\sqrt{x}t + \frac{y}{2\sqrt x})^2 - \frac{y^2}{4x} + z} dt$$</p>
+            <p>Now using substitution</p>
+            <p>$$u = \sqrt{x}t  + \frac{y}{2\sqrt x}$$</p>
+            <p>$$\frac{du}{dt} = \sqrt x$$</p>
+            <p>$$dt = \frac{du}{\sqrt x}$$</p>
+            <p>$$E_r = \frac{h}{\sqrt x} \int \frac{1}{u^2 + z - \frac{y^2}{4x}} du$$</p>
+
+            <p>Since ultimately the denominator should be in the form (g<sup>2</sup> + 1), the constants (the ones added to u<sup>2</sup>) must be changed to 1. This can be done by factoring out this constant itself. By treating the denominator of the above fraction as having two terms, the constant of z-  (y<sup>2</sup>/4x) can be factored out. Therefore,</p>
+
+            <p>$$E_r = \frac{h}{\sqrt x} \int \frac{1}{u^2 + (z - \frac{y^2}{4x})} $$</p>
+            <p>Dividing each term by (z-  (y<sup>2</sup>/4x) )</p>
+
+            <p>$$E_r = \frac{h}{\sqrt x} \int \frac{1}{(z - \frac{y^2}{4x})(\frac{u^2}{z - \frac{y^2}{4x}} + 1 )} du$$</p>
+
+            <p>$$E_r = \frac{h}{\sqrt x (z - \frac{y^2}{4x})} \int \frac{1}{(\frac{u^2}{z - \frac{y^2}{4x}} + 1 )} du$$</p>
+
+            <p>Since the u<sup>2</sup> is being divided, it is still not in the form (g<sup>2</sup>+1). Therefore, we can substitute once again,</p>
+
+            <p>$$g = \sqrt{\frac{u^2}{z-\frac{y^2}{4x}}}$$</p>
+            <p>$$g = \frac{u}{\sqrt{z-\frac{y^2}{4x}}}$$</p>
+            <p>$$\frac{dg}{du} = \frac{1}{\sqrt{z - \frac{y^2}{4x}}}$$</p>
+            <p>$$du = \sqrt{z - \frac{y^2}{4x}} dg$$</p>
+            <p>$$E_r = \frac{h}{\sqrt{x} (z - \frac{y^2}{4x})} \int \frac{1}{g^2 + 1} \sqrt{z-\frac{y^2}{4x}} dg$$</p>
+            <p>$$E_r = \frac{h}{\sqrt{x} \sqrt{z - \frac{y^2}{4x}}} \int \frac{1}{g^2 + 1} dg$$</p>
+
+            <p>The following integral calculation can be used:</p>
+            <p>$$\int \frac{1}{g^2 + 1} dg = tan^{-1}g$$</p>
+            <p>$$E_r = \frac{h}{\sqrt{x} \sqrt{z - \frac{y^2}{4x}}} tan^{-1}g + constant$$</p>
+            <p>Substituting back for g the following equation is obtained</p>
+            <p>$$g = \frac{u}{\sqrt{z - \frac{y^2}{4x}}}$$</p>
+            <p>$$E_r = \frac{h (tan^{-1}(\frac{u}{\sqrt{z - \frac{y^2}{4x}}}))}{\sqrt x \sqrt{z - \frac{y^2}{4x}}} + constant$$</p>
+
+            <p>Since u has two terms, the following steps were taken,</p>
+
+            <p>$$u = \sqrt x t + \frac{y}{2 \sqrt x}$$</p>
+            <p>$$u = \frac{2xt + y}{2\sqrt x}$$</p>
+            <p>Therefore, substituting back for u in the E<sub>r</sub> equation, the following equation is obtained</p>
+            <p>$$E_r = \frac{h (tan^{-1}(\frac{u}{\sqrt{z - \frac{y^2}{4x}}}))}{\sqrt x \sqrt{z - \frac{y^2}{4x}}} + constant$$</p>
+            <p>$$E_r = \frac{h (tan^{-1}(\frac{2xt + y}{2 \sqrt x \sqrt{z - \frac{y^2}{4x}}}))}{\sqrt x \sqrt{z - \frac{y^2}{4x}}} + constant$$</p>
+
+             <p>$$E_r = \frac{h (tan^{-1}(\frac{2xt + y}{2  \sqrt{zx - \frac{xy^2}{4x}}}))}{ \sqrt{zx - \frac{xy^2}{4x}}} + constant$$</p>
+             <p>$$E_r = \frac{h (tan^{-1}(\frac{2xt + y}{2  \sqrt{zx - \frac{y^2}{4}}}))}{ \sqrt{zx - \frac{y^2}{4}}} + constant$$</p>
+
+              <p>$$E_r = \frac{h (tan^{-1}(\frac{2xt + y}{  \sqrt{4zx - y^2}}))}{ \sqrt{zx - \frac{y^2}{4}}} + constant$$</p>
+
+              <p>Since the previous equation had equal terms under the square root sign, the entire fraction can be multiplied by 2/2. Then the ‘2’ in the denominator can be taken under the square root sign. </p>
+
+              <p>$$E_r = \frac{2}{2} \frac{h (tan^{-1}(\frac{2xt + y}{  \sqrt{4zx - y^2}}))}{ \sqrt{zx - \frac{y^2}{4}}} + constant$$</p>
+
+              <p>$$E_r = \frac{2h (tan^{-1}(\frac{2xt + y}{  \sqrt{4zx - y^2}}))}{ \sqrt{4zx - y^2}} + constant$$</p>
+
+              <p><b>Final Equation:</b></p>
+              <p>$$E_r = \frac{2h (tan^{-1}(\frac{2xt + y}{  \sqrt{4zx - y^2}}))}{ \sqrt{4zx - y^2}} + constant$$</p>
+              <p>Where,</p>
+              <ul>
+              <li>Let h = 9.52 x 10<sup>9</sup></li>
+              <li>Let x = 2.899 x 10<sup>9</sup></li>
+              <li>Let y = 6.847 x 10<sup>17</sup></li>
+              <li>Let z = 4.042 x 10<sup>26</sup></li>
+            </ul>
+
+            <p>The energy received over the 10 year period must be calculated. This means total energy received from 0->10 years, or after converting, 0->3.15x10<sup>8</sup> seconds. Therefore,</p>
+
+            <p>$$E_r = \int_{0}^{3.15 \times 10^8} P_r dt$$</p>
+
+
+            <p>Therefore, the following steps are taken to solve the above definite integral (the constants at the end of the integral equation are removed as they get subtracted from each other, therefore cancelling out):</p>
+
+            <p>$$E_{r(2015 -> 2025)} = \frac{2h (tan^{-1}(\frac{2x(3.15 \times 10^8) + y}{  \sqrt{4zx - y^2}}))}{ \sqrt{4zx - y^2}} - \frac{2h (tan^{-1}(\frac{2x(0) + y}{  \sqrt{4zx - y^2}}))}{ \sqrt{4zx - y^2}}$$</p>
+
+            Substituting in values for h, z, x and y, the following is obtained,
+
+            <p>$$E_{r(2015 -> 2025)} = (1.38 \times 10^{-8}) - (2.695 \times 10^{-9})$$</p>
+            <p>$$E_{r(2015 -> 2025)} = 1.11 \times 10^{-8}$$</p>
+            <p>From earlier, the energy of transmission over ten years is:</p>
+            <p>$$E_t = 5.68 \times 10^9 J$$</p>
+            <p>Percentage Received: $$\frac{E_r}{E_t} \times 100 = \frac{1.11 \times 10^{-8} J}{5.68 \times 10^9 J} \times 100 = 1.95 \times 10^{-16} %$$</p>
+
+            <h2 class="section-heading">Improvements for Communication System for Future</h2>
+
+            <p>In the ideal case, the power received should stay constant. This would mean that the power transmitted must change over time. If the value for the constant power received stays at the value for power received from the end of 2015 (2.36 x 10-17 W), the following steps must be taken in order to model how the power transmitted (P<sub>t2</sub>) must be changed:</p>
+            <p>$$P_r = \frac{k}{d^2}$$</p>
+            <p>$$k = P_t G_t G_r (\frac{\lambda}{4 \pi})^2 \times 0.55$$</p>
+            <p>$$k = 9.52 \times 10^9$$</p>
+            <p>Therefore for the relationship between P<sub>t2</sub> and P<sub>r</sub> the following equation is used</p>
+            <p>$$P_r = \frac{P_{t2} (k/P_t)}{d^2}$$</p>
+            <p>Rearranging this, $$P_{t2} = \frac{P_r d^2}{k/P_t} = \frac{(2.36 \times 10^{-17}) d^2}{k/18}$$ $$P_{t2} = \frac{P_r d^2}{k/P_t} = \frac{(2.36 \times 10^{-17}) d^2}{(9.52 \times 10^9)/18}$$</p>
+            <p>$$P_{t2} = 4.46 \times 10^{-26} d^2$$</p>
+
+            <p>Graphing this equation with the previous distance values, the following graph is obtained:</p>
+
+            <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/dispersion/graph3.jpg" alt="">
+              </a>
+              <span class="caption text-muted">(The above graph is exponential, however seems linear due to small coefficient (4.46 x 10<sup>-26</sup>) and the interval size)</span>
+            </div>
+
+            <p>The above model can be used for future space-crafts transmitting data within the X-band waves to the earth. This would allow for energy saving as power would increase over time rather than remaining at a constant high value. </p>
+
+            <h2 class="section-heading">Conclusion</h2>
+            <p>The percent of energy received on Earth compared to how much used to transmit data from the Voyager 1 spacecraft, over a ten year period, is 1.95 ×10<sup>-16</sup> %. This value is extremely small; however this is due to the fact that Voyager 1 is at a distance that is out of the solar system and it is also constantly moving away at a rapid rate. This value also plays a major role in describing the dispersion characteristics of microwave communication over large distances. </p>
+
+            <p>Energy is a scarce resource in space travel. This study yielded an algorithm which future spacecrafts can follow in order to transmit data to the Earth. Currently, spacecrafts transmit data at a constant power. However, changing the power over time allows for energy savings the spacecraft only has to increase its power of transmission as it moves farther from Earth. Further studies on this topic can look at the amount of energy savings such a method can allow for. </p>
+
+            <p>This study also has some limitations. Firstly, the velocity was considered to be constant as NASA states this value to be at a near constant value. However, Voyager 1 is not moving at a perfectly constant velocity, and rather is also affected by acceleration. Such factors have not been considered in this essay in order to keep the math manageable. Further, the energy received by the Earth’s antenna may also be affected by the Earth’s atmosphere as this could cause the loss of energy. This study did not consider the effects of Earth’s atmosphere on the power received for the same reason, however further studies can look at this value and factor this in when calculating received power. This specific experiment also considers the inverse square law to describe the dispersion of the microwaves from the spacecraft. However, in reality, charged particles, dust particles, other light and even gravitational pull, as described by relativity, can affect the dispersion of microwaves, especially over large distances. Further, this study is also limited by the assumption that Voyager is constantly communicating with the Earth. However, many times other planets can come in between the line of sight of Earth to the Voyager. During this time Earth would not pick up signals from the Voyager. Such factors can be calculated and considered in further studies to design future spacecrafts to not communicate and save energy during these time periods. This study also assumes that Earth’s position is constant as Voyager moves away from the Earth. However, Earth is moving around the sun. This velocity as well as positioning with reference to a spacecraft can be considered in improved studies in order to develop a more accurate algorithm to follow for power of transmission. This was disregarded to keep the math manageable. </p>
+
+            <p>Looking further into this study, it is clear that dispersion causes much loss of energy. From my previous experiences regarding space communication, it is clear that space communication should move towards using lasers as a means of communication. Though lasers still follow the inverse square law in terms of dispersion, the values of the constants are improved. This would allow for dispersion to reduce considerably and therefore cause greater efficiency in terms of energy used for transmitting data. This would be a substantial improvement in space-communication and is currently being pursued by NASA for future methods of communication. (NASA, 2015) Further studies can look at dispersion in terms of laser communication using a similar procedure as the one in this study. Not only is this study applicable to spacecraft communication, but also it is also applicable to other studies involving wireless communication. This could include harvesting energy from the sun using satellites above the earth. Overall, this study fulfilled the aim of looking at the characteristics of dispersion and its effect on energy transmitted versus energy received. It also fulfilled improving energy conservation for future spacecrafts using an exponential algorithm. This knowledge can apply to the space-communication field and can be used to improve means of communication in the future. </p>
+
+            <h2 class="section-heading">Bibliography</h2>
+
+            <ul>
+              <li>Anderson, H. (2003). Fixed broadband wireless system design. Retrieved from http://ca.wiley.com/WileyCDA/WileyTitle/productCd-0470844388.html</li>
+              <li>Britannica. (2015). Speed of Light. Retrieved from Encyclopaedia Britannica: http://www.britannica.com/science/speed-of-light</li>
+              <li>Ditutor. (2015). Integral of arctan. Retrieved from Ditutor: http://www.ditutor.com/integration/integral_arctan.html</li>
+              <li>NASA. (2002, March). Voyager Telecommunications. Retrieved from nasa.gov: http://descanso.jpl.nasa.gov/DPSummary/Descanso4--Voyager_new.pdf</li>
+              <li>NASA. (2010). Jet Propulsion Laboratory Voyager Instruments. Retrieved from nasa.gov: http://voyager.jpl.nasa.gov/spacecraft/instruments.html</li>
+              <li>NASA. (2015). High Gain Antenna. Retrieved from nasa.gov: http://voyager.jpl.nasa.gov/spacecraft/instruments_hga.html</li>
+              <li>NASA. (2015, October 18). Laser Communications Relay Demonstration (LCRD). Retrieved from nasa.gov: http://www.nasa.gov/mission_pages/tdm/lcrd/index.html</li>
+              <li>NASA. (2015, February 17). Planetary Voyager. Retrieved from nasa.gov: http://voyager.jpl.nasa.gov/science/planetary.html</li>
+              <li>NASA. (2015, January 16). Voyager Mission Operations Status Report # 2015-01-16, Week Ending January 16, 2015. Retrieved December 2015, from Voyager Mission Operations Status Report # 2015-01-16, Week Ending January 16, 2015</li>
+              <li>NASA. (2016, December 30). Where are the Voyagers? Retrieved from nasa.gov: http://voyager.jpl.nasa.gov/where/</li>
+              <li>Nave, R. (2013). EMS. Retrieved from hyperphysics.phy: http://hyperphysics.phy-astr.gsu.edu/hbase/ems2.html</li>
+              <li>Nave, R. (2014). Inverse Square Law, General. Retrieved from hyperphysics.phy: http://hyperphysics.phy-astr.gsu.edu/hbase/forces/isq.html</li>
+              <li>Ohio State University. (2013). Friis Transmission Equation. Retrieved from osu.edu: https://u.osu.edu/connolly/files/2013/12/Friis-1ty893p.pdf</li>
+              <li>Ritter, M. (2012). Digging Deeper into the Nature of Radiation: Radiation Laws. Retrieved from Earth Online Media: http://www.earthonlinemedia.com/ebooks/tpe_3e/energy/Dig_Deeper_into_the_Nature_of_Radiation.html</li>
+              <li>University of Hawaii. (2011). Antenna Introduction. Retrieved from phys.hawaii.edu: http://www.phys.hawaii.edu/~anita/new/papers/militaryHandbook/antennas.pdf</li>
+            </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+           <!-- <p>Placeholder text by
+              <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by
+              <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>-->
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <!--<footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>-->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>
