@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Project Profile - Devika Vishwanath</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">PROJECTS</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <!--<li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="post.html">Sample Post</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>-->
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/chemecar/universityofbritishcolumbia.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>Chem-E-Car Electrical Team</h1>
+              <h2 class="subheading"> </h2>
+              <span class="meta">Completed by
+                <a href="#">Devika Vishwanath</a>
+                Nov, 2018<br><br> <b>Website:</b> <a href="http://www.ubcchemecar.com/" target="_blank">www.ubcchemecar.com</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+
+            <!--<p>Website: <a href="www.ubcchemecar.com">www.ubcchemecar.com</a></p>-->
+
+            <h2 class="section-heading">Introduction:</h2>
+            <p>For the Chem-E-Car Competition, teams design small-scale cars that are operated through chemical means. At the competition, a distance as well as weight is given, and teams must work to accurately prepare in order to run this specific distance, with the specified weight, in the allocated 2 minute time period. However, the car must be chemically powered and the timing system of the car (used to stop the car accurately) must be depedent on a chemical process. No digital timers or external power to the motors can be used.</p>
+            
+            <p>The electrical team must work to create all sensor networks for this car, and must have a method of braking the car accurately. Input measurements and output control signals were achieved using an Arduino Microcontroller.</p>
+
+            <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/chemecar/car.png" alt="">
+            </a>
+            <span class="caption text-muted"></span>
+            </div>    
+
+            
+
+            <h2 class="section-heading">Power</h2>
+            <p>One of the challenges in this project was powering the car using a chemical battery. Our car was powered using a Zinc-Air Battery. </p>
+
+            <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/chemecar/battery.png" alt="">
+            </a>
+            <span class="caption text-muted"></span>
+            </div>    
+            <br>
+            <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/chemecar/batterylayers.JPG" >
+            </a>
+            <span class="caption text-muted">Battery Cell Design</span>
+            </div>    
+
+              <p>Multiple cells could be stacked on top of eachother, each being able to provide 1.3 V. The motors needed to be powered with this battery. However, this battery was only capable of providing a limited current. Though increasing the number of cells would increase the voltage, a large number of cells had a drastic impact on the internal resistance of the battery. Therefore, an optimum number of cells had to be determined through experimentation. </p>
+
+               <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/chemecar/BatteryCase.JPG" alt="" height="50%" width="50%">
+            </a>
+            <span class="caption text-muted">Battery Casing Design</span>
+            </div>   
+
+            
+
+
+
+            <h2 class="section-heading">Timing Mechanism:</h2>
+            <p>The car was controlled with a chemical timing mechanism that controlled the amount of time the car ran for. The mechanism used for our project was a Iodine Clock Reaction, which changes from clear to dark blue after a certain allocated time (dependent on concentrations of reactants). This reaction took place in a small glass beaker, placed on the car. The electrical team had to sense this color change and immediately stop the car. </p>
+            <br>
+
+            <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/chemecar/Iodineclockreaction.png" alt="" >
+            </a>
+            <span class="caption text-muted">Iodine Clock Reaction</span>
+            </div>   
+            
+            <p>Originally, we attemped to measure the color change using a color sensor.  However, this sensor coulc not provide accurate values, especially when placed next to a beaker. The sensor seemed to work more accurately when placed beside an opaque matte surface, as compared to the reflective and shiny beaker.</p>
+
+            <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/chemecar/colorsensor.jpg" alt="" height="50%" width="50%">
+            </a>
+            <span class="caption text-muted">Robot shop color sensor</span>
+            </div>    
+
+            <p>Our next idea involved using a solar sensor and a light source. We bought a bright key-chain flashlight from the dollar store, broke it open, and took out the LED array inside of it. We soldered wires to the small PCB module connected to the LED array, and connected the wires to a switch along with a 3V CR2032 Lithium Battery. </p>
+
+             <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/chemecar/solarcell.jpg" alt="" height="50%" width="50%">
+            </a>
+            <span class="caption text-muted">Solar Cell - Lee's Electronics</span>
+            </div>  
+
+
+             
+
+            <p>The solar cell was placed on one side of the beaker, and the light source was placed on the opposite side of the beaker. This way, the light could travel through the beaker when the solution was clear, but as soon as the solution turned dark blue, the light could no longer pass through the beaker, creating a drastic change in sensor values from the solar cell.</p>
+
+            <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/chemecar/solarcellset-up.JPG" alt="">
+            </a>
+            <span class="caption text-muted">Sensor Set up</span>
+            </div>  
+
+            <p>The solar cell outputted values between 0-5 V. Therefore, this output was connected to an analog input pin on the Arduino.</p>
+
+
+
+
+
+            <h2 class="section-heading">Motor Driver:</h2>
+
+            <p>The back-wheels of the car where connected to two motors. A motor driver was used to control the speed of the car, and stop the car at the specified distance. </p>
+
+            <div class="text-center">
+              <a href="#">
+                <img class="img-fluid" src="img/chemecar/motor_driver_circuit.JPG" alt="">
+              </a>
+            <span class="caption text-muted">Motor Driver Schematic</span>
+            </div>  
+
+            <p>The H-bridge functioned using P-Channel IRF5305 Mosfets along with N-Channel 75321P Mosfets. Four BJTs were used to control the switching of the Hbridge. We powered the above circuit with 12V from a regulated power source (Adjustable Buck Converter). </p>
+
+            <p>The speed of the motors were controlled using two PWM outputs from the Arduino. The PWM outputs had a peak to peak Voltage of 5V. Therefore, since the Motor Driver was controlled with 12V supply, the peak-to-peak voltage of the PWM signal had to be amplified. We used a 2 comparators to complete this.</p>
+
+            <h2 class="section-heading">Pouring the Solution:</h2>
+            <p>The timing mechanism was initiated when the potassium iodide solution mixed with starch and ascorbic acid. Due to high precision required for the timing mechanism, a solution needed to be poured in at a constant flow rate in order to avoid human error. Therefore, a solenoid valve was used to complete the following. When the "ON" switch of the car was clicked, this initiated the first switch of the solenoid valve. </p>
+
+            <div class="text-center">
+              <a href="#">
+                <img class="img-fluid" src="img/chemecar/solenoid valve circuit.JPG" alt="">
+              </a>
+            <span class="caption text-muted">Solenoid Valve</span>
+            </div>  
+
+            <p>However, for the National AICHE Conference, we made a design change and chose to use a manual ball valve. The solenoid valve had a very small opening, therefore being unable to let the entire volume of solution into the mixing beaker at once. A larger solenoid valve (with a larger opening) was difficult to find. The few large solenoid valves we did find were expensive and had a much greater mass. A ball valve on the other hand, though a little more inaccurate, seemed to be a better option. The inaccuracy of the ball valve was barely noticeable as the opening was quite large, and it only needed to hold a very small amount of solution.  </p>
+
+            <p>When this valve was manually opened, the car needed to begin moving. To provide this signal to the car, we used a photogate. The ball valve handle was placed between the photogate, and when pulled it cleared the photogate's path, therefore signalling to the Arduino that the car needed to begin.</p>
+
+           <!-- <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/chemecar/batteryCase.jpg" alt="" height="50%" width="50%">
+            </a>
+            <span class="caption text-muted">Photogate</span>
+            </div>   -->
+
+            <h2 class="section-heading">Mixing the Solution:</h2>
+            <p>The iodine clock solution needed to be continuously stirred in order to ensure maximum accuracy. Since lab stirring rods are magnetic, this was easy to achieve. A magnetic stirring rod was connected to a 3V CD Motor, which was powered externally using a lithium CR2032 battery. A 3D printed part capable of holding a stir-rod, was connected to the motor shaft. A second stir-rod was placed inside the beaker. The motor was placed in a compartment underneath the mixing beaker. Therefore, since the stir-rods were magnetic, when the motor rod spun, this allowed for the rod within the beaker to spin along with it.</p>
+            
+            <div class="text-center">
+              <a href="#">
+                <img class="img-fluid" src="img/chemecar/motor housing.JPG" alt="" height="70%" width="70%">
+              </a>
+            <span class="caption text-muted">The Motor Vessel Part of the Reaction Vessel</span>
+            </div>  
+
+
+            <h2 class="section-heading">Arduino:</h2>
+
+            <p>The following code was used to collect data and control the car:</p>
+
+            <pre><code>
+#include <LiquidCrystal_I2C.h>
+#define solarIn A0
+#define photoIn A1
+#define stirMotor 3
+#define pwmPin1 10
+#define pwmPin2 9
+#define switchLight 4
+
+//LCD INIT
+LiquidCrystal_I2C lcd(0x27,20,4);  // set the LCD address to 0x27 for a 16 chars and 2 line display
+long printT = 0;
+
+//to calculate average value or solarIn
+long startTime;
+unsigned long average = 0;
+unsigned long sum = 0;
+unsigned long count = 0;
+int sensorVal = 0;
+
+//reaction timing
+unsigned long completionTime = 0;
+unsigned long timeOffset =10000;//minimum run time
+
+boolean done = LOW;
+boolean first = HIGH;
+
+int photoThreshold = 100;
+
+void setup() {
+  // put your setup code here, to run once:
+  
+  //LCD INITIALIZATION, GND and PWR for LCD
+  analogWrite(A2,0);
+  analogWrite(A3,255);
+  lcd.init();                      // initialize the lcd 
+  lcd.backlight(); 
+
+  pinMode(solarIn, INPUT);
+  pinMode(photoIn, INPUT);
+  pinMode(stirMotor,OUTPUT);
+  pinMode(pwmPin1, OUTPUT);
+  pinMode(pwmPin2, OUTPUT);
+  pinMode(switchLight, OUTPUT); 
+  analogWrite(pwmPin1, 0);
+  analogWrite(pwmPin2, 0);
+  digitalWrite(switchLight, HIGH);
+
+  Serial.begin(9600);   
+
+  //RAMP UP STIR MOTOR
+  int i;
+  for(i=60;i<80;i+=3){
+  analogWrite(stirMotor, i);
+  delay(400);
+  }
+  for(;i<120;i+=10){
+    analogWrite(stirMotor, i);
+     delay(400);
+  }
+
+  //WAIT FOR VALVE TO OPEN
+  if(analogRead(photoIn) < photoThreshold ){lcdTop();lcd.print("Valve Closed");}
+  while(analogRead(photoIn) < photoThreshold ){  }
+
+  //PRINT LCD OPEN 
+  lcd.clear();
+  lcd.print("Valve Opened");
+
+
+  //RECORD REACTION START TIME
+  startTime = millis();
+  printT = millis();
+  delay(2000);
+  analogWrite(pwmPin1, 255);
+
+}
+
+void loop() {
+
+  //IF REACTION IS FINISHED
+   if (done && (millis()-startTime > (completionTime + timeOffset))){
+    Serial.print(" , , ,"); lcd.print(completionTime/1000.00);Serial.println();
+    analogWrite(stirMotor, 0);
+     lcd.clear();
+     lcdTop();lcd.print("Completion Time");
+     lcdBottom();lcd.print(completionTime/1000.0);
+    while(true){};
+   }
+
+  //REACTION NOT FINISHED
+   else{
+    sensorVal=(analogRead(solarIn));
+    count++;
+    sum += sensorVal;
+    average = sum/count;
+    Serial.print((millis()-startTime)/1000.0); Serial.print(", "); Serial.print(sensorVal); Serial.print(", ");Serial.print(average); 
+
+    //PRINT TO LCD
+    if (millis()-printT > 500){
+    lcd.clear();
+    lcdTop();
+    lcd.print("Time, Solar, Avg");
+    lcdBottom();
+    String outStr = String((millis()-startTime)/1000.0);
+    outStr+= ", ";outStr+=sensorVal;outStr+=", ";outStr+=average;
+    lcd.print(outStr);
+    Serial.println("OUTSTR:");Serial.print(outStr);Serial.println();
+    printT=millis();
+    }
+
+    
+    if (done && first){
+    Serial.print(", ");
+    Serial.print("DONE");
+    first = LOW;
+    }
+    Serial.println();
+
+//REACTION JUST FINISHED
+//   if(!done && (millis()-startTime >5000) && (sensorVal < average*0.7)){
+     if(!done && (sensorVal < average*0.7)){
+     done = HIGH;
+     completionTime = millis()-startTime;
+     analogWrite(pwmPin1, 0);
+     delay(10);
+     analogWrite(pwmPin2, 255);
+     delay(150);
+     analogWrite(pwmPin2,0);
+   }
+   
+}
+}
+void lcdTop(){
+  lcd.setCursor(0,0);
+}
+
+void lcdBottom(){
+  lcd.setCursor(0,1);
+}
+
+
+  
+            </code></pre>
+
+            <br>
+            <br>
+
+
+             <div class="text-center">
+              <a href="#">
+              <img class="img-fluid" src="img/chemecar/car.jpg" alt="">
+            </a>
+            <span class="caption text-muted"></span>
+            </div>  
+
+          </div>
+
+        </div>
+      </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <!--<footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>-->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>
